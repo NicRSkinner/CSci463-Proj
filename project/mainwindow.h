@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "testbench.h"
+#include "adminoptions.h"
+#include "qtimer.h"
+#include "QTime"
 
 namespace Ui {
 class MainWindow;

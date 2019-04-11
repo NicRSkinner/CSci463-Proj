@@ -28,7 +28,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QHBoxLayout" name="masterHorizontalLayout" stretch="1,2">
+     <layout class="QHBoxLayout" name="masterHorizontalLayout" stretch="5,12">
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
@@ -92,7 +92,20 @@
       <item>
        <layout class="QVBoxLayout" name="mapLayout" stretch="2,25,6">
         <item>
-         <layout class="QHBoxLayout" name="topToolBar" stretch="0,2,0,0">
+         <layout class="QHBoxLayout" name="topToolBar" stretch="0,0,0,0">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <layout class="QVBoxLayout" name="verticalLayoutTimeout" stretch="1,2">
             <property name="spacing">
@@ -124,19 +137,6 @@
              </widget>
             </item>
            </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="Line" name="line">
@@ -323,6 +323,13 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionSystem_Test_GUI"/>
+   </widget>
+   <addaction name="menuTools"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -333,6 +340,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionSystem_Test_GUI">
+   <property name="text">
+    <string>System Test GUI</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
