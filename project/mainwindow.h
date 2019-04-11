@@ -19,8 +19,19 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_actionSystem_Test_GUI_triggered();
+
+    void on_pushButton_8_clicked();
+
+    void updateTime();
+
 private:
     Ui::MainWindow *ui;
+    testBench tb;
+    AdminOptions adminoptions;
+
+
 };
 
 #endif // MAINWINDOW_H
