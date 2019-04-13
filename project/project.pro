@@ -26,10 +26,22 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    room.cpp \
+    door.cpp \
+    zone.cpp \
+    building.cpp \
+    employee.cpp \
+    supervisor.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    room.h \
+    door.h \
+    zone.h \
+    building.h \
+    employee.h \
+    supervisor.h
 
 FORMS += \
         mainwindow.ui
