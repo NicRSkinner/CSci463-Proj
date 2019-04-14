@@ -27,11 +27,23 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
+    room.cpp \
+    door.cpp \
+    zone.cpp \
+    building.cpp \
+    employee.cpp \
+    supervisor.cpp \
     testbench.cpp \
     adminoptions.cpp
 
 HEADERS += \
         mainwindow.h \
+    room.h \
+    door.h \
+    zone.h \
+    building.h \
+    employee.h \
+    supervisor.h \
     testbench.h \
     adminoptions.h
 
