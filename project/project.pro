@@ -32,7 +32,9 @@ SOURCES += \
     zone.cpp \
     building.cpp \
     employee.cpp \
-    supervisor.cpp
+    supervisor.cpp \
+    testbench.cpp \
+    adminoptions.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,10 +43,14 @@ HEADERS += \
     zone.h \
     building.h \
     employee.h \
-    supervisor.h
+    supervisor.h \
+    testbench.h \
+    adminoptions.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    testbench.ui \
+    adminoptions.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
