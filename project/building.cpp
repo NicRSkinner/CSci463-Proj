@@ -2,7 +2,7 @@
 
 int phoneNumber;
 bool open;
-std::String address;
+QString address;
 
 
 Building::Building()
@@ -18,7 +18,7 @@ void setOpen(bool status) {
     open = status;
 }
 
-void setAddress(std::String addres) {
+void setAddress(QString addres) {
     address = addres;
 }
 
@@ -30,6 +30,6 @@ bool getOpen(){
     return open;
 }
 
-std::String getAddress() {
+QString getAddress() {
     return address;
 }

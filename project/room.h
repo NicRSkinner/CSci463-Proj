@@ -7,6 +7,8 @@
 class Room : public QMainWindow
 {
     Q_OBJECT
+private:
+    bool securityAlarm, fireAlarm, signs, controlRoom;
 public:
     explicit Room(QWidget *parent = nullptr);
     void setSecurityAlarm(bool value);

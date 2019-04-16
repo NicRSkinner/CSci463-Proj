@@ -1,6 +1,6 @@
 #include "room.h"
 
-bool securityAlarm, fireAlarm, signs, controlRoom;
+extern bool securityAlarm, fireAlarm, signs, controlRoom;
 
 Room::Room(QWidget *parent) : QMainWindow(parent)
 {

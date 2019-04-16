@@ -1,20 +1,23 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
-
+#include "qstring.h"
 
 class Employee
 {
+private:
+    int SSN, phoneNumber;
+    QString name, address, username, password;
 public:
     Employee();
-    void setUsername(std::String user);
+    void setUsername(QString user);
 
-    void setPassword(std::String pass);
+    void setPassword(QString pass);
 
     void setSSN(int number);
 
-    void setName(std::String user);
+    void setName(QString user);
 
-    void setAddress(std::String live);
+    void setAddress(QString live);
 
     void setPhoneNumber(int number);
 
@@ -22,13 +25,13 @@ public:
 
     int getPhoneNumber();
 
-    std::String getUsername();
+    QString getUsername();
 
-    std::String getPassword();
+    QString getPassword();
 
-    std::String getAddress();
+    QString getAddress();
 
-    std::String getName();
+    QString getName();
 };
 
 #endif // EMPLOYEE_H
