@@ -1,12 +1,7 @@
 #include "zone.h"
 
-bool emergencyAlarm, confirmCancel;
-int alartType;
-
-Zone::Zone()
-{
-    Zone();
-}
+extern bool emergencyAlarm, confirmCancel;
+extern int alartType;
 
 void setCancelAlarm(bool value) {
     emergencyAlarm = value;

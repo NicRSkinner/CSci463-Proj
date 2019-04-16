@@ -1,9 +1,11 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 #include "qstring.h"
+#include <QObject>
 
-class Employee
+class Employee : public QObject
 {
+    Q_OBJECT
 private:
     int SSN, phoneNumber;
     QString name, address, username, password;
