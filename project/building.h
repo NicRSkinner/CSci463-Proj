@@ -1,16 +1,20 @@
 #ifndef BUILDING_H
 #define BUILDING_H
+#include <QString>
 
 class Building
 {
 public:
     Building();
     void setPhoneNumber(int number);
-    void setAddress(std::String string);
-    void setOpen(bool status);
+    void setAddress(QString string);
     int getPhoneNumber();
-    std::String getAddress();
+    QString getAddress();
     bool getOpen();
+
+private:
+    int phoneNumber;
+    QString address;
 
 };
 
