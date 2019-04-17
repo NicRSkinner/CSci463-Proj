@@ -7,8 +7,11 @@
 
 class Door : public QObject
 {
+    Q_OBJECT
+
 public:
-    Door(bool inState); //Default const
+    virtual ~Door();
+    Door(); //Default const
     void setLockState(bool lock);
     bool getLockState();
 private:

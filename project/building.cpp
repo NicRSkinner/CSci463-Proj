@@ -1,9 +1,9 @@
 #include "building.h"
 
-
 Building::Building()
 {
     //Building();
+    address = "yolo";
 }
 
 void Building::setPhoneNumber(int number) {

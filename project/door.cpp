@@ -1,12 +1,14 @@
 #include "door.h"
 
 
-
-Door::Door(bool inState)
+Door::Door()
 {
-    lock = inState;
+    lock = false;
 }
-
+Door::~Door()
+{
+    lock = false;
+}
 
 void Door::setLockState(bool value) {
     lock = value;

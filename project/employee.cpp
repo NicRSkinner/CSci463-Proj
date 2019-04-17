@@ -5,53 +5,54 @@ extern QString name, address, username, password;
 
 Employee::Employee()
 {
-    Employee();
+    SSN = 0;
+    phoneNumber = 0;
 }
 
-void setUsername(QString user) {
+void Employee::setUsername(QString user) {
     username = user;
 }
 
-void setPassword(QString pass) {
+void Employee::setPassword(QString pass) {
     password = pass;
 }
 
-void setSSN(int number) {
+void Employee::setSSN(int number) {
     SSN = number;
 }
 
-void setName(QString user) {
+void Employee::setName(QString user) {
     name = user;
 }
 
-void setAddress(QString live) {
+void Employee::setAddress(QString live) {
     address = live;
 }
 
-void setPhoneNumber(int number) {
+void Employee::setPhoneNumber(int number) {
     phoneNumber  = number;
 }
 
-int getSSN() {
+int Employee::getSSN() {
     return SSN;
 }
 
-int getPhoneNumber() {
+int Employee::getPhoneNumber() {
     return phoneNumber;
 }
 
-QString getUsername() {
+QString Employee::getUsername() {
     return username;
 }
 
-QString getPassword() {
+QString Employee::getPassword() {
     return password;
 }
 
-QString getAddress() {
+QString Employee::getAddress() {
     return address;
 }
 
-QString getName() {
+QString Employee::getName() {
     return name;
 }

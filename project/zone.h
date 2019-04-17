@@ -2,7 +2,6 @@
 #define ZONE_H
 
 #include <QList>
-
 #include <QObject>
 #include "room.h"
 
@@ -17,5 +16,4 @@ private:
     bool masterAlarm;
     //QList<Room> roomsList;
 };
-
 #endif // ZONE_H

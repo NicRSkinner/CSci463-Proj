@@ -1,25 +1,26 @@
 #include "supervisor.h"
 
-bool cancelAlarm, confirmAlarm;
+
 
 Supervisor::Supervisor()
 {
-    Supervisor();
+    cancelAlarm = false;
 }
 
-void setCancelAlarm(bool alarm) {
+void Supervisor::setCancelAlarm(bool alarm) {
     cancelAlarm = alarm;
 }
 
-void setConfirmAlarm(bool alarm) {
+void Supervisor::setConfirmAlarm(bool alarm) {
     confirmAlarm = alarm;
 }
 
-bool getCancelAlarm() {
+
+bool Supervisor::getCancelAlarm() {
     return cancelAlarm;
 }
 
-bool getConfirmAlarm() {
+bool Supervisor::getConfirmAlarm() {
     return confirmAlarm;
 }
 
