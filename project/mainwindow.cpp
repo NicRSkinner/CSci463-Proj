@@ -52,5 +52,5 @@ void MainWindow::on_pushButtonCEmergencyS_clicked()
 
 void MainWindow::on_pushButtonAdminOptions_clicked()
 {
-
+    adminoptions.show();
 }
