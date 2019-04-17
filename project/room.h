@@ -4,19 +4,18 @@
 #include <QObject>
 #include <QList>
 #include "door.h"
-#include "zone.h"
 
 class Room : public QObject
 {
     Q_OBJECT
 private:
     bool securityAlarm, fireAlarm, signs;
-    QList<Door> door;
-    Zone *zone;
-    void setZone(Zone zone);
+    QList<Door> doors;
+   // Zone *zone;
+   // void setZone(Zone zone);
     void addDoor(Door door);
 public:
-    //explicit Room(QWidget *parent = nullptr);
+    explicit Room(QWidget *parent = nullptr);
     void activateSecurityAlarm();
     void activateFireAlarm();
     void deactivateSecurityAlarm();
@@ -26,7 +25,7 @@ public:
     bool getFireAlarmState();
     bool getSecurityAlarmState();
     QList<Door> getDoors(); //Blanking on how classes work in header files
-    Zone getZone(); //Also I think im googling wrong queries cuz I cant find an example
+    //Zone getZone(); //Also I think im googling wrong queries cuz I cant find an example
 
 
 signals:

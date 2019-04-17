@@ -8,7 +8,7 @@
 class Door : public QObject
 {
 public:
-    Door(bool inState); //Default const
+    Door(bool inState, QObject inObject); //Default const
     void setLockState(bool lock);
     bool getLockState();
 private:

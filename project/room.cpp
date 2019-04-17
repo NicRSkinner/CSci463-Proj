@@ -36,12 +36,13 @@ void Room::addDoor(Door door) {
     //door = ;
     Room::doors.append(door);
 }
-
+/*
 void Room::setZone(Zone zone) {
     //instanciate zone room is in
     //room = ;
     Room::zone = &zone;
 }
+*/
 
 void Room::setSign(bool sign) {
     signs = sign;
@@ -55,10 +56,14 @@ bool Room::getFireAlarmState(){
     return fireAlarm;
 }
 
+/*
 QList<Door> Room::getDoors() {
     //return door
-    return Room::doors;
+    return doors;
 }
+*/
+
+/*
 void Room::getZone() {
     //return zone
     return Room::zone;
