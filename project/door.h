@@ -8,9 +8,11 @@
 class Door : public QObject
 {
 public:
-    //Door(); //Default const
-    void setLock(bool lock);
-    bool getLock();
+    Door(bool inState); //Default const
+    void setLockState(bool lock);
+    bool getLockState();
+private:
+       bool lock;
 
 };
 
