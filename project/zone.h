@@ -1,21 +1,17 @@
 #ifndef ZONE_H
 #define ZONE_H
 
-#include <QList>
 
-#include <QObject>
-#include "room.h"
-
-class Zone : public QObject
+class Zone
 {
-    Q_OBJECT
 public:
     Zone();
-    bool setMasterAlarm(bool inAlarmState);
-
-private:
-    bool masterAlarm;
-    //QList<Room> roomsList;
+    void setCancelAlarm(bool alarm);
+    void setConfirmAlarm(bool confirm);
+    bool getCancelAlarm();
+    bool getConfirmAlarm();
+    int getAlertType();
+    void setAlartType(int type);
 };
 
 #endif // ZONE_H

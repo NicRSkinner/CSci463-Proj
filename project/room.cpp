@@ -1,20 +1,16 @@
 #include "room.h"
 
-extern bool securityAlarm, fireAlarm, signs, controlRoom;
+bool securityAlarm, fireAlarm, signs, controlRoom;
 
-/*
-Room()
+Room::Room(QWidget *parent) : QMainWindow(parent)
 {
 
-    // TODO : FINISH CONSTRUCTOR
-    //    setSecurityAlarm(inSecAlarm);
-    //    setAlarm(inFireAlarm);
-    //    setZone(inZone);
-
+    //Default constructor can pass in values above
+    Room();
 
 
 }
-*/
+
 void setSecurityAlarm(bool value) {
     securityAlarm = value;
 }
@@ -23,12 +19,12 @@ void setAlarm(bool value) {
     fireAlarm = value;
 }
 
-void setDoor(Door door) {
+void setDoor(Door::Door door) {
     //instanciate door
     //door = ;
 }
 
-void setZone(Zone zone) {
+void setZone(Zone::Zone zone) {
     //instanciate zone room is in
     //room = ;
 }

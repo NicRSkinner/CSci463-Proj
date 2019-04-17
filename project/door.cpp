@@ -1,17 +1,16 @@
 #include "door.h"
 
+bool lock;
 
-
-Door::Door(bool inState)
+Door::Door()
 {
-    lock = inState;
+    Door();
 }
 
-
-void Door::setLockState(bool value) {
+void setLock(bool value) {
     lock = value;
 }
 
-bool Door::getLockState() {
+bool getLock() {
     return lock;
 }

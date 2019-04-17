@@ -1,21 +1,35 @@
 #include "building.h"
 
+int phoneNumber;
+bool open;
+std::String address;
+
 
 Building::Building()
 {
-    //Building();
+    Building();
 }
 
-void Building::setPhoneNumber(int number) {
+void setPhoneNumber(int number) {
     phoneNumber = number;
 }
 
+void setOpen(bool status) {
+    open = status;
+}
 
-void Building::setAddress(QString addres) {
+void setAddress(std::String addres) {
     address = addres;
 }
 
+int getPhoneNumber() {
+    return phoneNumber;
+}
 
-QString Building::getAddress() {
+bool getOpen(){
+    return open;
+}
+
+std::String getAddress() {
     return address;
 }
