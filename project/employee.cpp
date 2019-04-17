@@ -1,30 +1,30 @@
 #include "employee.h"
 
-extern int SSN, phoneNumber;
-extern QString name, address, username, password;
+int SSN, phoneNumber;
+std::String name, address, username, password;
 
 Employee::Employee()
 {
     Employee();
 }
 
-void setUsername(QString user) {
+void setUsername(std::String user) {
     username = user;
 }
 
-void setPassword(QString pass) {
+void setPassword(std::String pass) {
     password = pass;
 }
 
 void setSSN(int number) {
-    SSN = number;
+    SSN = number
 }
 
-void setName(QString user) {
+void setName(std::String user) {
     name = user;
 }
 
-void setAddress(QString live) {
+void setAddress(std::String live) {
     address = live;
 }
 
@@ -40,18 +40,18 @@ int getPhoneNumber() {
     return phoneNumber;
 }
 
-QString getUsername() {
+std::String getUsername() {
     return username;
 }
 
-QString getPassword() {
+std::String getPassword() {
     return password;
 }
 
-QString getAddress() {
+std::String getAddress() {
     return address;
 }
 
-QString getName() {
+std::String getName() {
     return name;
 }

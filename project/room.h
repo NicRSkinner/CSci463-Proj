@@ -1,20 +1,18 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include <QObject>
-#include "door.h"
-#include "zone.h"
+#include <QMainWindow>
 
-class Room : public QObject
+
+class Room : public QMainWindow
 {
-private:
-    bool securityAlarm, fireAlarm, signs, controlRoom;
-    void setZone(Zone zone);
-    void setDoor(Door door);
+    Q_OBJECT
 public:
-    //explicit Room(QWidget *parent = nullptr);
+    explicit Room(QWidget *parent = nullptr);
     void setSecurityAlarm(bool value);
     void setFireAlarm(bool value);
+    void setDoor(Door::Door);
+    void setZone(Zone::Zone);
     void setSign(bool sign);
     void setControlRoom(bool control);
     bool getSign();
