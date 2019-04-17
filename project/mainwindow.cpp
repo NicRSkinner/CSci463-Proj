@@ -29,7 +29,28 @@ void MainWindow::on_actionSystem_Test_GUI_triggered()
     tb.exec();
 }
 
-void MainWindow::on_pushButton_8_clicked()
+
+void MainWindow::on_pushButtonLockdown_clicked()
 {
-    adminoptions.show();
+
+}
+
+void MainWindow::on_pushButtonMasterUnlock_clicked()
+{
+
+}
+
+void MainWindow::on_pushButtonClearAlarms_clicked()
+{
+
+}
+
+void MainWindow::on_pushButtonCEmergencyS_clicked()
+{
+
+}
+
+void MainWindow::on_pushButtonAdminOptions_clicked()
+{
+
 }
