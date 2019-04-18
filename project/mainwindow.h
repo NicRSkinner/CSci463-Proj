@@ -22,9 +22,17 @@ public:
 private slots:
     void on_actionSystem_Test_GUI_triggered();
 
-    void on_pushButton_8_clicked();
-
     void updateTime();
+
+    void on_pushButtonLockdown_clicked();
+
+    void on_pushButtonMasterUnlock_clicked();
+
+    void on_pushButtonClearAlarms_clicked();
+
+    void on_pushButtonCEmergencyS_clicked();
+
+    void on_pushButtonAdminOptions_clicked();
 
 private:
     Ui::MainWindow *ui;
