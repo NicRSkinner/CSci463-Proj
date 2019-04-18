@@ -45,6 +45,8 @@ private:
     testBench tb;
     AdminOptions adminoptions;
     QGraphicsScene scene;
+    QBrush blueBrush = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
+    QPen blackPen = QPen(Qt::black);
     QGraphicsRectItem *rect = scene.addRect(QRectF(-50, -50, 100, 100));
 
 

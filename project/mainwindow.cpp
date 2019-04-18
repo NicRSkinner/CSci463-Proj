@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->graphicsViewMap->setScene(&scene);
+    ui->graphicsViewMap->scale(3,3);
+    rect->setBrush(blueBrush);
     ui->graphicsViewMap->show();
 
 }
