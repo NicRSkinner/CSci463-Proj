@@ -1,9 +1,11 @@
 #include "door.h"
 
 
-Door::Door()
+
+Door::Door(bool inState, QObject inObject)
 {
-    lock = false;
+    setParent(&inObject);
+    lock = inState;
 }
 Door::~Door()
 {
@@ -17,3 +19,5 @@ void Door::setLockState(bool value) {
 bool Door::getLockState() {
     return lock;
 }
+
+

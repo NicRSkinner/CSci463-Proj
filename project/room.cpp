@@ -60,7 +60,7 @@ void Room::addDoor(Door door) {
 
 QList<Door> Room::getDoors() {
     //return door
-    return Room::doors;
+    return doors;
 }
 
 void Room::getZone() {
