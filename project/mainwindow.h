@@ -6,6 +6,10 @@
 #include "adminoptions.h"
 #include "qtimer.h"
 #include "QTime"
+#include "QGraphicsScene"
+#include "QGraphicsRectItem"
+#include "QGraphicsView"
+#include "QGridLayout"
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +24,8 @@ public:
     ~MainWindow();
 
 private slots:
+
+
     void on_actionSystem_Test_GUI_triggered();
 
     void updateTime();
@@ -38,6 +44,8 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
+    QGraphicsScene scene;
+    QGraphicsRectItem *rect = scene.addRect(QRectF(-50, -50, 100, 100));
 
 
 };

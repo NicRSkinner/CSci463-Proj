@@ -11,6 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     t->setInterval(1000);
     connect(t, &QTimer::timeout, this, &MainWindow::updateTime);
     t->start();
+
+
+    ui->graphicsViewMap->setScene(&scene);
+    ui->graphicsViewMap->show();
+
 }
 
 void MainWindow::updateTime()
