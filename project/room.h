@@ -1,26 +1,29 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include <QMainWindow>
+#include <QObject>
+#include <QList>
+#include "door.h"
 
-
-class Room : public QMainWindow
+class Room : public QObject
 {
     Q_OBJECT
+private:
+    bool securityAlarm, fireAlarm, signs;
+    //QList<Door> doors;
+    void addDoor(Door door);
 public:
-    explicit Room(QWidget *parent = nullptr);
-    void setSecurityAlarm(bool value);
-    void setFireAlarm(bool value);
-    void setDoor(Door::Door);
-    void setZone(Zone::Zone);
+    Room();
+    //explicit Room(QWidget *parent = nullptr);
+    void activateSecurityAlarm();
+    void activateFireAlarm();
+    void deactivateSecurityAlarm();
+    void deactivateFireAlarm();
     void setSign(bool sign);
-    void setControlRoom(bool control);
     bool getSign();
-    bool getSecurityAlarm();
-    bool getFireAlarm();
-    Door getDoor(); //Blanking on how classes work in header files
-    Zone getZone(); //Also I think im googling wrong queries cuz I cant find an example
-    bool getControlRoom();
+    bool getFireAlarmState();
+    bool getSecurityAlarmState();
+    //QList<Door> getDoors(); //Blanking on how classes work in header files
 
 
 signals:

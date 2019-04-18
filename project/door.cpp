@@ -1,16 +1,19 @@
 #include "door.h"
 
-bool lock;
 
-Door::Door()
+
+Door::Door(bool inState, QObject inObject)
 {
-    Door();
+    setParent(&inObject);
+    lock = inState;
 }
 
-void setLock(bool value) {
+void Door::setLockState(bool value) {
     lock = value;
 }
 
-bool getLock() {
+bool Door::getLockState() {
     return lock;
 }
+
+

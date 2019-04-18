@@ -1,15 +1,20 @@
 #ifndef DOOR_H
 #define DOOR_H
 
+#include <QObject>
 
 
 
-class Door
+class Door : public QObject
 {
+    Q_OBJECT
+
 public:
-    Door(); //Default const
-    void setLock(bool lock);
-    bool getLock();
+    Door(bool inState, QObject inObject); //Default const
+    void setLockState(bool lock);
+    bool getLockState();
+private:
+       bool lock;
 
 };
 
