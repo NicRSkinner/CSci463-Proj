@@ -7,10 +7,6 @@ Door::Door(bool inState, QObject inObject)
     setParent(&inObject);
     lock = inState;
 }
-Door::~Door()
-{
-    lock = false;
-}
 
 void Door::setLockState(bool value) {
     lock = value;
