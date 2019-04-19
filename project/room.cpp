@@ -56,12 +56,12 @@ QGraphicsRectItem* Room::getRoomGraphicsItem()
 }
 
 
-/*
 
+/*
 void Room::addDoor(Door door) {
     //instanciate door
     //door = ;
-    Room::doors.append(door);
+    //doors.append(door);
 }
 
 QList<Door> Room::getDoors() {

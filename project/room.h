@@ -14,7 +14,7 @@ class Room : public QGraphicsObject
 private:
     bool securityAlarm, fireAlarm, signs;
     //QList<Door> doors;
-    void addDoor(Door door);
+    //void addDoor(Door door);
     QGraphicsRectItem *graphicsRoomRectangle;
 public:
     // Left x, top y, width, height
