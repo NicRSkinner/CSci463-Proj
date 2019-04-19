@@ -1,25 +1,21 @@
 #include "buildingview.h"
 
-BuildingView::BuildingView(QWidget *parent) : QWidget(parent)
+BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
 {
-    graphicsViewMap = nullptr;
+    floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
+    setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+    setScene(&floorScenes.first());
+    //rect->setBrush(brushAllClearUnlocked);
+    setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
+    graphicsViewZoom = new Graphics_view_zoom(this);
+    graphicsViewZoom->set_modifiers(Qt::NoModifier);
+    setUpRooms();
+    show();
 }
 
-BuildingView::BuildingView(QGraphicsView *gv, QWidget *parent) : QWidget(parent)
+void BuildingView::setUpRooms()
 {
-
-    //graphicsViewMap = gv;
-    sceneList.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
-    //graphicsViewMap->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
-    //graphicsViewMap->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
-    //graphicsViewMap->setScene(&sceneList.first());
-
-    /*
-    //rect.setBrush(blueBrush);
-    graphicsViewMap->setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
-    zoom = new Graphics_view_zoom(graphicsViewMap);
-    zoom->set_modifiers(Qt::NoModifier);
-    graphicsViewMap->show();
-    */
+    floorScenes.first().addRect(QRectF(-50, -50, 100, 100));
 }
 
