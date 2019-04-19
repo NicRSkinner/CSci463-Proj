@@ -6,9 +6,9 @@
 #include "door.h"
 #include "QGraphicsRectItem"
 #include "QGraphicsTextItem"
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 
-class Room : public QObject, public QGraphicsItem
+class Room : public QGraphicsObject
 {
     Q_OBJECT
 private:
