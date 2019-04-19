@@ -13,10 +13,16 @@ MainWindow::MainWindow(QWidget *parent) :
     t->start();
 
 
+    scene.setSceneRect(-2000, -2000, 4000, 4000);
+    ui->graphicsViewMap->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+    ui->graphicsViewMap->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
     ui->graphicsViewMap->setScene(&scene);
-    ui->graphicsViewMap->scale(3,3);
     rect->setBrush(blueBrush);
+    ui->graphicsViewMap->setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
+    z = new Graphics_view_zoom(ui->graphicsViewMap);
+    z->set_modifiers(Qt::NoModifier);
     ui->graphicsViewMap->show();
+
 
 }
 
@@ -35,7 +41,6 @@ void MainWindow::on_actionSystem_Test_GUI_triggered()
 {
     tb.exec();
 }
-
 
 void MainWindow::on_pushButtonLockdown_clicked()
 {

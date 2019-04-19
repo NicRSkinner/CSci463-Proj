@@ -9,7 +9,7 @@
 #include "QGraphicsScene"
 #include "QGraphicsRectItem"
 #include "QGraphicsView"
-#include "QGridLayout"
+#include "graphicsviewzoom.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,7 +24,6 @@ public:
     ~MainWindow();
 
 private slots:
-
 
     void on_actionSystem_Test_GUI_triggered();
 
@@ -46,9 +45,9 @@ private:
     AdminOptions adminoptions;
     QGraphicsScene scene;
     QBrush blueBrush = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
-    QPen blackPen = QPen(Qt::black);
-    QGraphicsRectItem *rect = scene.addRect(QRectF(-50, -50, 100, 100));
-
+    QPen pen;
+    QGraphicsRectItem *rect = scene.addRect(QRectF(0, 0, 100, 100));
+    Graphics_view_zoom *z;
 
 };
 
