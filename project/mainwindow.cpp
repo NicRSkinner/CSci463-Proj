@@ -12,18 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(t, &QTimer::timeout, this, &MainWindow::updateTime);
     t->start();
 
-
-    scene.setSceneRect(-2000, -2000, 4000, 4000);
-    ui->graphicsViewMap->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
-    ui->graphicsViewMap->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
-    ui->graphicsViewMap->setScene(&scene);
-    rect->setBrush(blueBrush);
-    ui->graphicsViewMap->setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
-    z = new Graphics_view_zoom(ui->graphicsViewMap);
-    z->set_modifiers(Qt::NoModifier);
-    ui->graphicsViewMap->show();
-
-
 }
 
 void MainWindow::updateTime()

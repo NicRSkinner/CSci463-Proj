@@ -43,12 +43,6 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
-    QGraphicsScene scene;
-    QBrush blueBrush = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
-    QPen pen;
-    QGraphicsRectItem *rect = scene.addRect(QRectF(0, 0, 100, 100));
-    Graphics_view_zoom *z;
-
 };
 
 #endif // MAINWINDOW_H
