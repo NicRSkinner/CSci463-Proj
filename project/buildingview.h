@@ -12,9 +12,12 @@ class BuildingView : public QGraphicsView
 {
     Q_OBJECT
 private:
-    QList<QGraphicsScene> floorScenes;
     QBrush brushAllClearUnlocked = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
     Graphics_view_zoom *graphicsViewZoom;
+    QList<QGraphicsScene *> floorScenes;
+    int currentScene;
+protected:
+    //
 public:
     explicit BuildingView(QWidget *parent = nullptr);
     void setUpRooms();
