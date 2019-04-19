@@ -3,7 +3,7 @@
 //bool securityAlarm, fireAlarm, signs;
 
 
-Room::Room()
+Room::Room(QGraphicsRectItem *roomRectangle)
 {
 
     // TODO : FINISH CONSTRUCTOR
@@ -12,7 +12,7 @@ Room::Room()
     //    setZone(inZone);
 
     securityAlarm = false;
-
+    graphicsRoomRectangle = roomRectangle;
 }
 
 
@@ -50,12 +50,18 @@ bool Room::getFireAlarmState(){
     return fireAlarm;
 }
 
-/*
+QGraphicsRectItem* Room::getRoomGraphicsItem()
+{
+    return graphicsRoomRectangle;
+}
 
+
+
+/*
 void Room::addDoor(Door door) {
     //instanciate door
     //door = ;
-    Room::doors.append(door);
+    //doors.append(door);
 }
 
 QList<Door> Room::getDoors() {

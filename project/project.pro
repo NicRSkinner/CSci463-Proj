@@ -25,6 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    buildingview.cpp \
+    graphicsviewzoom.cpp \
         main.cpp \
         mainwindow.cpp \
     room.cpp \
@@ -37,6 +39,8 @@ SOURCES += \
     adminoptions.cpp
 
 HEADERS += \
+    buildingview.h \
+    graphicsviewzoom.h \
         mainwindow.h \
     room.h \
     door.h \

@@ -6,6 +6,10 @@
 #include "adminoptions.h"
 #include "qtimer.h"
 #include "QTime"
+#include "QGraphicsScene"
+#include "QGraphicsRectItem"
+#include "QGraphicsView"
+#include "graphicsviewzoom.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +24,7 @@ public:
     ~MainWindow();
 
 private slots:
+
     void on_actionSystem_Test_GUI_triggered();
 
     void updateTime();
@@ -38,8 +43,6 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
-
-
 };
 
 #endif // MAINWINDOW_H
