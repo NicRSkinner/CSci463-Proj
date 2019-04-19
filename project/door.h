@@ -2,10 +2,11 @@
 #define DOOR_H
 
 #include <QObject>
+#include <QGraphicsItem>
 
 
 
-class Door : public QObject
+class Door : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 
