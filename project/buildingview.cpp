@@ -2,24 +2,59 @@
 
 BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
 {
-    floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
+    // Set up Scenes
+    for (int i = 0; i < totalFloorCount; i++)
+    {
+        floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
+    }
+    currentSceneIndex = 0;
+    currentScenePtr = floorScenes.first();
+    setScene(currentScenePtr);
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
 
-    //rect->setBrush(brushAllClearUnlocked);
     setDragMode(QGraphicsView::DragMode::ScrollHandDrag);
     graphicsViewZoom = new Graphics_view_zoom(this);
     graphicsViewZoom->set_modifiers(Qt::NoModifier);
 
-    currentScene = 0;
+
     setUpRooms();
-    setScene(floorScenes.front());
+
     show();
 }
 
 void BuildingView::setUpRooms()
 {
-    QGraphicsRectItem *thisRect = floorScenes.at(currentScene)->addRect(QRectF(-50, -50, 100, 100));
+    QGraphicsRectItem *thisRect = floorScenes.at(0)->addRect(QRectF(-50, -50, 100, 100));
+    QGraphicsRectItem *thatRect = floorScenes.at(1)->addRect(QRectF(-500, -842, 1000, 1000));
     thisRect->setBrush(brushAllClearUnlocked);
+    thatRect->setBrush(brushAllClearUnlocked);
+    thisRect->setFlag(QGraphicsItem::ItemIsSelectable, true);
 }
 
+bool BuildingView::MapFloorUp()
+{
+    if (currentSceneIndex == totalFloorCount - 1)
+    {
+        return false;
+    }
+
+    currentSceneIndex += 1;
+    currentScenePtr = floorScenes.at(currentSceneIndex);
+    setScene(currentScenePtr);
+    return true;
+}
+
+bool BuildingView::MapFloorDown()
+{
+    if (currentSceneIndex == 0)
+    {
+        return false;
+    }
+
+    currentSceneIndex -= 1;
+    currentScenePtr = floorScenes.at(currentSceneIndex);
+    setScene(currentScenePtr);
+    return true;
+}

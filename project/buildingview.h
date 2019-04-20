@@ -15,7 +15,10 @@ private:
     QBrush brushAllClearUnlocked = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
     Graphics_view_zoom *graphicsViewZoom;
     QList<QGraphicsScene *> floorScenes;
-    int currentScene;
+    int currentSceneIndex;
+    int totalFloorCount = 2;
+    QGraphicsScene *currentScenePtr;
+
 protected:
     //
 public:
@@ -25,6 +28,8 @@ public:
 signals:
 
 public slots:
+    bool MapFloorUp();
+    bool MapFloorDown();
 };
 
 #endif // BUILDINGVIEW_H

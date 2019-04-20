@@ -356,9 +356,41 @@
         </item>
         <item>
          <widget class="QWidget" name="widgetMapView" native="true">
-          <layout class="QGridLayout" name="gridLayout_3">
+          <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0" columnstretch="16,1,0">
            <item row="0" column="0">
             <widget class="BuildingView" name="graphicsViewMap"/>
+           </item>
+           <item row="0" column="1">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QPushButton" name="pushButtonFloorUp">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Floor
+Up</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonFloorDown">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Floor
+Down</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -525,8 +557,45 @@
    <class>BuildingView</class>
    <extends>QGraphicsView</extends>
    <header location="global">buildingview.h</header>
+   <slots>
+    <slot>MapFloorUp()</slot>
+    <slot>MapFloorDown()</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButtonFloorDown</sender>
+   <signal>released()</signal>
+   <receiver>graphicsViewMap</receiver>
+   <slot>MapFloorDown()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1657</x>
+     <y>630</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1545</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonFloorUp</sender>
+   <signal>released()</signal>
+   <receiver>graphicsViewMap</receiver>
+   <slot>MapFloorUp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1644</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1552</x>
+     <y>348</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
