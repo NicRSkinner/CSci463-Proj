@@ -20,6 +20,9 @@ private:
     int totalFloorCount = 2;
     QGraphicsScene *currentScenePtr;
     QList<Room *> rooms;
+    Door *testDoor;
+    Door *testDoor2;
+    Door *testDoor3;
 protected:
     //
 public:
