@@ -27,9 +27,9 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
 void BuildingView::setUpRooms()
 {
 
-    rooms.append(new Room(QRectF(-200, -100, 400, 200)));
+    rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2)));
     floorScenes.at(0)->addItem(rooms.at(0));
-    rooms.append(new Room(QRectF(0, -100, 200, 200)));
+    rooms.append(new Room(QRectF(0, -900/2, 900/2, 1800/2)));
     floorScenes.at(1)->addItem(rooms.at(1));
 }
 

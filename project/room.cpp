@@ -12,7 +12,7 @@ Room::Room(QRectF roomBounds) : QGraphicsObject()
     //    setZone(inZone);
 
     securityAlarm = false;
-    roomBoundry = roomBounds;
+    roomBoundary = roomBounds;
     setFlag(GraphicsItemFlag::ItemIsSelectable, true);
 }
 /*
@@ -53,23 +53,20 @@ bool Room::getFireAlarmState(){
 
 QRectF Room::boundingRect() const
 {
-    return roomBoundry;
+    return roomBoundary;
 }
 
 void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+
     painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
 
-    painter->drawRect(roomBoundry);
+    painter->drawRect(roomBoundary);
 
     if (isSelected())
     {
-        painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::BDiagPattern));
-        painter->drawRect(roomBoundry);
-    }
-    else
-    {
-        painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
+        painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::CrossPattern));
+        painter->drawRect(roomBoundary);
     }
 
 

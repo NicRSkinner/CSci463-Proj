@@ -5,7 +5,6 @@
 #include <QList>
 #include "door.h"
 #include <QGraphicsObject>
-#include <QAbstractGraphicsShapeItem>
 #include <QRectF>
 #include <qpainter.h>
 
@@ -16,7 +15,7 @@ private:
     bool securityAlarm, fireAlarm, signs;
     //QList<Door> doors;
     //void addDoor(Door door);
-    QRectF roomBoundry;
+    QRectF roomBoundary;
 public:
     explicit Room(QRectF roomBounds);
     //Room(const Room &obj);
