@@ -26,11 +26,11 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
 
 void BuildingView::setUpRooms()
 {
-    QGraphicsRectItem *thisRect = floorScenes.at(0)->addRect(QRectF(-50, -50, 100, 100));
-    QGraphicsRectItem *thatRect = floorScenes.at(1)->addRect(QRectF(-500, -842, 1000, 1000));
-    thisRect->setBrush(brushAllClearUnlocked);
-    thatRect->setBrush(brushAllClearUnlocked);
-    thisRect->setFlag(QGraphicsItem::ItemIsSelectable, true);
+
+    rooms.append(new Room(QRectF(-200, -100, 400, 200)));
+    floorScenes.at(0)->addItem(rooms.at(0));
+    rooms.append(new Room(QRectF(0, -100, 200, 200)));
+    floorScenes.at(1)->addItem(rooms.at(1));
 }
 
 bool BuildingView::MapFloorUp()

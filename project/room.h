@@ -4,9 +4,10 @@
 #include <QObject>
 #include <QList>
 #include "door.h"
-#include "QGraphicsRectItem"
-#include "QGraphicsTextItem"
 #include <QGraphicsObject>
+#include <QAbstractGraphicsShapeItem>
+#include <QRectF>
+#include <qpainter.h>
 
 class Room : public QGraphicsObject
 {
@@ -15,10 +16,10 @@ private:
     bool securityAlarm, fireAlarm, signs;
     //QList<Door> doors;
     //void addDoor(Door door);
-    QGraphicsRectItem *graphicsRoomRectangle;
+    QRectF roomBoundry;
 public:
-    // Left x, top y, width, height
-    Room(QGraphicsRectItem *roomRectangle);
+    explicit Room(QRectF roomBounds);
+    //Room(const Room &obj);
     //explicit Room(QWidget *parent = nullptr);
     void activateSecurityAlarm();
     void activateFireAlarm();
@@ -28,7 +29,8 @@ public:
     bool getSign();
     bool getFireAlarmState();
     bool getSecurityAlarmState();
-    QGraphicsRectItem* getRoomGraphicsItem();
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
 
     //QList<Door> getDoors(); //Blanking on how classes work in header files

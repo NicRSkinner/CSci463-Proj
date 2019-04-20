@@ -7,6 +7,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include "graphicsviewzoom.h"
+#include "room.h"
 
 class BuildingView : public QGraphicsView
 {
@@ -18,7 +19,7 @@ private:
     int currentSceneIndex;
     int totalFloorCount = 2;
     QGraphicsScene *currentScenePtr;
-
+    QList<Room *> rooms;
 protected:
     //
 public:

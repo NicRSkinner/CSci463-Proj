@@ -3,7 +3,7 @@
 //bool securityAlarm, fireAlarm, signs;
 
 
-Room::Room(QGraphicsRectItem *roomRectangle)
+Room::Room(QRectF roomBounds) : QGraphicsObject()
 {
 
     // TODO : FINISH CONSTRUCTOR
@@ -12,10 +12,18 @@ Room::Room(QGraphicsRectItem *roomRectangle)
     //    setZone(inZone);
 
     securityAlarm = false;
-    graphicsRoomRectangle = roomRectangle;
+    roomBoundry = roomBounds;
+    setFlag(GraphicsItemFlag::ItemIsSelectable, true);
 }
-
-
+/*
+Room::Room(const Room &obj)
+{
+    securityAlarm = obj.securityAlarm;
+    roomBoundry = obj.roomBoundry;
+    signs = obj.signs;
+    fireAlarm = obj.fireAlarm;
+}
+*/
 void Room::activateFireAlarm() {
     fireAlarm = true;
 }
@@ -31,13 +39,6 @@ void Room::deactivateSecurityAlarm() {
     securityAlarm = false;
 }
 
-/*
-void Room::setZone(Zone zone) {
-    //instanciate zone room is in
-    //room = ;
-    Room::zone = &zone;
-}
-*/
 void Room::setSign(bool sign) {
     signs = sign;
 }
@@ -50,12 +51,30 @@ bool Room::getFireAlarmState(){
     return fireAlarm;
 }
 
-QGraphicsRectItem* Room::getRoomGraphicsItem()
+QRectF Room::boundingRect() const
 {
-    return graphicsRoomRectangle;
+    return roomBoundry;
 }
 
+void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
 
+    painter->drawRect(roomBoundry);
+
+    if (isSelected())
+    {
+        painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::BDiagPattern));
+        painter->drawRect(roomBoundry);
+    }
+    else
+    {
+        painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
+    }
+
+
+    //painter->drawRect
+}
 
 /*
 void Room::addDoor(Door door) {
@@ -67,10 +86,5 @@ void Room::addDoor(Door door) {
 QList<Door> Room::getDoors() {
     //return door
     return doors;
-}
-
-void Room::getZone() {
-    //return zone
-    return Room::zone;
 }
 */
