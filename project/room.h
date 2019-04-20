@@ -7,6 +7,7 @@
 #include <QGraphicsObject>
 #include <QRectF>
 #include <qpainter.h>
+#include <QtMath>
 
 class Room : public QGraphicsObject
 {

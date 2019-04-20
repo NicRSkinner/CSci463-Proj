@@ -68,9 +68,7 @@ void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::CrossPattern));
         painter->drawRect(roomBoundary);
     }
-
-
-    //painter->drawRect
+    painter->drawText(static_cast<int>(roomBoundary.x() + roomBoundary.width() / 2), static_cast<int>(roomBoundary.y() + roomBoundary.height() / 2), 300, 80, Qt::TextFlag::TextShowMnemonic, "test");
 }
 
 /*
