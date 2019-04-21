@@ -28,14 +28,14 @@ void BuildingView::setUpRooms()
 {
 
     rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2)));
-    //floorScenes.at(0)->addItem(rooms.at(0));
-    testDoor = new Door(true, (QRectF(-800/2, -900/2, 500/2, 200/2)), 0);
+    floorScenes.at(0)->addItem(rooms.at(0));
+    testDoor = new Door(true, (QRectF(-800/2, -900/2, 500/2, 200/2)), 0, rooms.at(0));
     floorScenes.at(0)->addItem(testDoor);
 
-    testDoor2 = new Door(true, (QRectF(-900/2, -900/2, 500/2, 200/2)), 90);
+    testDoor2 = new Door(false, (QRectF(-900/2, -900/2, 500/2, 200/2)), 90, rooms.at(0));
     floorScenes.at(0)->addItem(testDoor2);
 
-    testDoor3 = new Door(true, (QRectF(-900/2, -1000/2, 500/2, 200/2)), 45);
+    testDoor3 = new Door(true, (QRectF(-900/2, -1000/2, 500/2, 200/2)), 45, rooms.at(0));
     floorScenes.at(0)->addItem(testDoor3);
 
     //rooms.append(new Room(QRectF(0, -900/2, 900/2, 1800/2)));

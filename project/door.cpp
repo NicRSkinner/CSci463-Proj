@@ -2,13 +2,14 @@
 
 
 
-Door::Door(bool inState, QRectF doorBounds, qreal inRotation) : QGraphicsObject()
+Door::Door(bool inState, QRectF doorBounds, qreal inRotation, QGraphicsObject *inParent) : QGraphicsObject()
 {
     lock = inState;
     doorBoundary = doorBounds;
     //setParent(inObject);
-    setFlag(GraphicsItemFlag::ItemIsSelectable, true);
+    setFlag(GraphicsItemFlag::ItemIsSelectable, false);
     setRotation(inRotation);
+    setParent(inParent);
 }
 
 void Door::setLockState(bool value) {
@@ -40,10 +41,18 @@ void Door::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     {
         painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::CrossPattern));
         painter->drawRect(doorBoundary);
+        //parentObject()->setSelected(true);
+        //this->setSelected(false);
+    }
 
+    if(getLockState())
+    {
+        painter->setBrush(QBrush(Qt::red, Qt::BrushStyle::SolidPattern));
+        painter->drawRect(smallRect);
+    }
+    else {
         painter->setBrush(QBrush(Qt::green, Qt::BrushStyle::SolidPattern));
         painter->drawRect(smallRect);
-
     }
 
 

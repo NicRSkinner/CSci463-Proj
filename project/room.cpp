@@ -59,7 +59,7 @@ QRectF Room::boundingRect() const
 void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
-    painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
+    painter->setBrush(QBrush(Qt::gray, Qt::BrushStyle::SolidPattern));
 
     painter->drawRect(roomBoundary);
 

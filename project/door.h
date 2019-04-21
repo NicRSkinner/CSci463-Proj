@@ -12,7 +12,7 @@ class Door : public QGraphicsObject
     Q_OBJECT
 
 public:
-    Door(bool inState, QRectF doorBounds, qreal inRotation); //Default const
+    Door(bool inState, QRectF doorBounds, qreal inRotation, QGraphicsObject *inParent); //Default const
     void setLockState(bool lock);
     bool getLockState();
 private:
