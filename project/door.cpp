@@ -26,6 +26,7 @@ QRectF Door::boundingRect() const
     return doorBoundary;
 }
 
+
 void Door::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 

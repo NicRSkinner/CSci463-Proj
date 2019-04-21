@@ -15,11 +15,17 @@ public:
     Door(bool inState, QRectF doorBounds, qreal inRotation, QGraphicsObject *inParent); //Default const
     void setLockState(bool lock);
     bool getLockState();
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 private:
    bool lock;
    QRectF doorBoundary;
    QRectF boundingRect() const override;
-   void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+
+   QPainter *painter;
+   const QStyleOptionGraphicsItem *option;
+   QWidget *widget;
+
 };
 
 #endif // DOOR_H

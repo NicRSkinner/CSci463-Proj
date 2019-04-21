@@ -17,6 +17,7 @@ private:
     //QList<Door> doors;
     //void addDoor(Door door);
     QRectF roomBoundary;
+    QList<Door *> doors;
 public:
     explicit Room(QRectF roomBounds);
     //Room(const Room &obj);
@@ -31,6 +32,10 @@ public:
     bool getSecurityAlarmState();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    void paint();
+    bool addDoor(Door *inDoor);
+    bool unlockDoors();
+    bool lockDoors();
 
 
     //QList<Door> getDoors(); //Blanking on how classes work in header files
