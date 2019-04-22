@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     t->setInterval(1000);
     connect(t, &QTimer::timeout, this, &MainWindow::updateTime);
     t->start();
-
+    //connect(ui->graphicsViewMap, SIGNAL(selectionChanged()), this, SLOT(roomSelectionUpdated()));
 }
 
 void MainWindow::updateTime()
@@ -28,6 +28,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionSystem_Test_GUI_triggered()
 {
     tb.exec();
+}
+
+void MainWindow::roomSelectionUpdated()
+{
+   ui->labelTimeSTATIC->setText("TEST");
 }
 
 void MainWindow::on_pushButtonLockdown_clicked()

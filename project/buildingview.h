@@ -17,20 +17,25 @@ private:
     Graphics_view_zoom *graphicsViewZoom;
     QList<QGraphicsScene *> floorScenes;
     int currentSceneIndex;
-    int totalFloorCount = 2;
+    const int totalFloorCount = 2;
     QGraphicsScene *currentScenePtr;
     QList<Room *> rooms;
+    QGraphicsItem *selectedItem;
 protected:
     //
 public:
     explicit BuildingView(QWidget *parent = nullptr);
     void setUpRooms();
+    Room* getSelectedRoom();
 
 signals:
-
+    void SelectionChanged();
 public slots:
     bool MapFloorUp();
     bool MapFloorDown();
+    void SceneSelectionChanged();
+private slots:
+
 };
 
 #endif // BUILDINGVIEW_H

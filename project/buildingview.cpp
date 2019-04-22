@@ -6,6 +6,7 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
     for (int i = 0; i < totalFloorCount; i++)
     {
         floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
+        connect(floorScenes.at(i), SIGNAL(selectionChanged()), this, SLOT(SceneSelectionChanged())); //connect the signal from the scene for when a selection is changed and use it to update ours
     }
     currentSceneIndex = 0;
     currentScenePtr = floorScenes.first();
@@ -24,6 +25,27 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
     show();
 }
 
+void BuildingView::SceneSelectionChanged()
+{
+    int selectedCount = currentScenePtr->selectedItems().count();
+    if (selectedCount == 1)
+    {
+        selectedItem = currentScenePtr->selectedItems().at(0);
+    }
+    else if (selectedCount == 0)
+    {
+        selectedItem = nullptr;
+    }
+    emit SelectionChanged();
+
+}
+
+Room* BuildingView::getSelectedRoom()
+{
+    // We're only able to select rooms on screen, so this cast should work
+    return dynamic_cast<Room *>(selectedItem);
+}
+
 void BuildingView::setUpRooms()
 {
 
@@ -39,7 +61,7 @@ bool BuildingView::MapFloorUp()
     {
         return false;
     }
-
+    currentScenePtr->clearSelection();
     currentSceneIndex += 1;
     currentScenePtr = floorScenes.at(currentSceneIndex);
     setScene(currentScenePtr);
@@ -52,7 +74,7 @@ bool BuildingView::MapFloorDown()
     {
         return false;
     }
-
+    currentScenePtr->clearSelection();
     currentSceneIndex -= 1;
     currentScenePtr = floorScenes.at(currentSceneIndex);
     setScene(currentScenePtr);
