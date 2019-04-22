@@ -59,16 +59,43 @@ QRectF Room::boundingRect() const
 void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 
-    painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
+    painter->setBrush(QBrush(Qt::gray, Qt::BrushStyle::SolidPattern));
 
     painter->drawRect(roomBoundary);
-
     if (isSelected())
     {
+        lockDoors();
         painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::CrossPattern));
         painter->drawRect(roomBoundary);
     }
+    else {
+        unlockDoors();
+    }
     painter->drawText(static_cast<int>(roomBoundary.x() + roomBoundary.width() / 2), static_cast<int>(roomBoundary.y() + roomBoundary.height() / 2), 300, 80, Qt::TextFlag::TextShowMnemonic, "test");
+}
+
+bool Room::addDoor(Door *inDoor)
+{
+    doors.append(inDoor);
+    return true;
+}
+
+bool Room::lockDoors()
+{
+    for( int i=0; i<doors.count(); ++i )
+    {
+        doors.at(i)->setLockState(true);
+    }
+    return true;
+}
+
+bool Room::unlockDoors()
+{
+    for( int i=0; i<doors.count(); ++i )
+    {
+        doors.at(i)->setLockState(false);
+    }
+    return true;
 }
 
 /*
