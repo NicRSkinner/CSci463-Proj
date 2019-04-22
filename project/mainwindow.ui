@@ -558,7 +558,7 @@ Down</string>
    <extends>QGraphicsView</extends>
    <header location="global">buildingview.h</header>
    <slots>
-    <signal>selectionChanged()</signal>
+    <signal>SelectionChanged()</signal>
     <slot>MapFloorUp()</slot>
     <slot>MapFloorDown()</slot>
    </slots>
@@ -600,9 +600,9 @@ Down</string>
   </connection>
   <connection>
    <sender>graphicsViewMap</sender>
-   <signal>selectionChanged()</signal>
+   <signal>SelectionChanged()</signal>
    <receiver>MainWindow</receiver>
-   <slot>roomSelectionUpdated()</slot>
+   <slot>RoomSelectionUpdated()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>1049</x>
@@ -616,6 +616,6 @@ Down</string>
   </connection>
  </connections>
  <slots>
-  <slot>roomSelectionUpdated()</slot>
+  <slot>RoomSelectionUpdated()</slot>
  </slots>
 </ui>

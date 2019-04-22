@@ -40,7 +40,7 @@ private slots:
 
     void on_pushButtonAdminOptions_clicked();
 
-    void roomSelectionUpdated();
+    void RoomSelectionUpdated();
 
 private:
     Ui::MainWindow *ui;

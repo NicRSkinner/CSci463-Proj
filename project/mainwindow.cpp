@@ -30,8 +30,10 @@ void MainWindow::on_actionSystem_Test_GUI_triggered()
     tb.exec();
 }
 
-void MainWindow::roomSelectionUpdated()
+void MainWindow::RoomSelectionUpdated()
 {
+   //This gets updated every time the selection is changed in the buildingview
+   //ui->graphicsViewMap->getSelectedRoom() will return a pointer to a room object, which is null if nothing is selected
    ui->labelTimeSTATIC->setText("TEST");
 }
 
