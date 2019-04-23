@@ -41,8 +41,15 @@
        return true;
    }
 
-    bool lockAllDoors()
+    bool Zone::lockAllDoors()
     {
-
+        for(int i = 0; i < rooms.length(); i++)
+        rooms.at(i)->lockDoors();
         return true;
     }
+
+void Zone::unlockDoors()
+{
+    for(int i = 0; i < rooms.length(); i++)
+    rooms.at(i)->unlockDoors();
+}

@@ -12,8 +12,9 @@ class Zone : public QObject
 public:
     Zone(QObject *inParent, int inZone);
     bool setMasterAlarm(bool inAlarmState);
-    bool lockAllDoor();
+    bool lockAllDoors();
     QList<Room *> rooms;
+    void unlockDoors();
 
 private:
     bool masterAlarm;

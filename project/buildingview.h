@@ -37,6 +37,8 @@ public:
     Room* getSelectedRoom();
     QList<QGraphicsScene *> getMasterFloorScene();
     QGraphicsItemGroup *getFloor1();
+    void masterLockdown();
+    void masterUnlock();
 
 signals:
     void SelectionChanged();

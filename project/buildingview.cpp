@@ -52,29 +52,19 @@ void BuildingView::setUpRooms()
 {
     zones.append(new Zone(this, 1));
     zones.append(new Zone(this, 2));
-    //rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2), "Room 102", this));
-    //zones.at(0)->rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2), "Room 102", zones.at(0)));
-    //floorScenes.at(0)->addItem(zones.at(0)->rooms.at(0));
-
-    //zones.at(1)->rooms.append(new Room(QRectF(-1500/2, -2500/2, 1800/2, 1800/2), "Room 103", zones.at(1)));
-    //floorScenes.at(0)->addItem(zones.at(1)->rooms.at(0));
-
-    //testDoor = new Door(true, (QRectF(-800/2, -800/2, 500/2, 200/2)), 0, rooms.at(0));
-    //floorScenes.at(0)->addItem(testDoor);
-    //rooms.at(0)->addDoor(testDoor);
-
-    //testDoor2 = new Door(true, (QRectF(-900/2, -900/2, 500/2, 200/2)), 90, rooms.at(0));
-    //floorScenes.at(0)->addItem(testDoor2);
-    //rooms.at(0)->addDoor(testDoor2);
-
-    //testDoor3 = new Door(true, (QRectF(1000/2, -1500/2, 500/2, 200/2)), -90, rooms.at(1));
-    //floorScenes.at(0)->addItem(testDoor3);
-    //rooms.at(1)->addDoor(testDoor3);
-
-    //rooms.append(new Room(QRectF(0, -900/2, 900/2, 1800/2)));
-    //floorScenes.at(1)->addItem(rooms.at(1));
 
     floorScenes.at(0)->addItem(doorsFloor1);
+}
+
+void BuildingView::masterLockdown()
+{
+    zones.at(0)->lockAllDoors();
+    zones.at(1)->lockAllDoors();
+}
+
+void BuildingView::masterUnlock()
+{
+    zones.at(0)->unlockDoors();
 }
 
 bool BuildingView::MapFloorUp()
