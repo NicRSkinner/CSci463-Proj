@@ -47,6 +47,10 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
+
+private slots:
+    void AlarmActivated();
+    void UpdateTimeout();
 };
 
 #endif // MAINWINDOW_H

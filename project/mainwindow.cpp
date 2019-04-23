@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(t, &QTimer::timeout, this, &MainWindow::updateTime);
     t->start();
     //connect(ui->graphicsViewMap, SIGNAL(selectionChanged()), this, SLOT(roomSelectionUpdated()));
+
+    connect(ui->buildingViewMap, SIGNAL(activateAlarm()), this, SLOT(AlarmActivated()));
 }
 
 void MainWindow::updateTime()
@@ -60,12 +62,47 @@ void MainWindow::RoomSelectionUpdated()
    ui->labelGunTurrets->setText("Activated");
 
    // Electricity
+   if (selectedRoom->getFireAlarmState())
+   {
+       ui->labelElectricity->setText("Activated");
+   }
+   else
+   {
+       ui->labelElectricity->setText("Deactivated");
+   }
+
    // Fire Alarm
+   if (selectedRoom->getFireAlarmState())
+   {
+       ui->labelFireAlarm->setText("Activated");
+   }
+   else
+   {
+       ui->labelFireAlarm->setText("Deactivated");
+   }
+
    // Smoke Alarm
+   if (selectedRoom->getSmokeAlarmState())
+   {
+       ui->labelSmokeAlarm->setText("Activated");
+   }
+   else
+   {
+       ui->labelSmokeAlarm->setText("Deactivated");
+   }
+
    // Security Alarm
+   if (selectedRoom->getSecurityAlarmState())
+   {
+       ui->labelSecurityAlarm->setText("Activated");
+   }
+   else
+   {
+       ui->labelSecurityAlarm->setText("Deactived");
+   }
    // Occupation
 
-
+   ui->labelOccupation->setText("No Occupation");
 
 }
 
@@ -93,4 +130,17 @@ void MainWindow::on_pushButtonCEmergencyS_clicked()
 void MainWindow::on_pushButtonAdminOptions_clicked()
 {
     adminoptions.show();
+}
+
+void MainWindow::AlarmActivated()
+{
+    QTimer *t = new QTimer(this);
+    t->setInterval(1000);
+    connect(t, &QTimer::timeout, this, &MainWindow::UpdateTimeout);
+    t->start();
+}
+
+void MainWindow::UpdateTimeout()
+{
+
 }
