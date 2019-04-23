@@ -157,6 +157,6 @@ void MainWindow::on_pushButtonTestStart_clicked()
         currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
 
-    //tb.addZone(currZone);
-    //tb.exec();
+    tb.addZone(currZone);
+    tb.exec();
 }

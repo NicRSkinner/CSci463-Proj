@@ -51,6 +51,11 @@ void testBench::programLoop() {
 void testBench::triggerAlarm() {
     //This is where the function for triggering alarm will be. Needs to be setup
     qDebug() << "Here next closing";
+    if(currZone == nullptr) {
+        qDebug() << "No init";
+        return;
+    }
+    currZone->rooms.at(0)->unlockDoors();
     emit ready();
 }
 

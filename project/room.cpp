@@ -7,7 +7,7 @@
 
 Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObject()
 {
-
+    setParent(inParent);
     // TODO : FINISH CONSTRUCTOR
     //    setSecurityAlarm(inSecAlarm);
     //    setAlarm(inFireAlarm);
