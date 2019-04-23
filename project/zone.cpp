@@ -53,3 +53,9 @@ void Zone::unlockDoors()
     for(int i = 0; i < rooms.length(); i++)
     rooms.at(i)->unlockDoors();
 }
+
+void Zone::clearAlarms()
+{
+    for(int i = 0; i < rooms.length(); i++)
+    rooms.at(i)->clearAlarms();
+}

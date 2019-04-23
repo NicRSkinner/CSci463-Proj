@@ -134,6 +134,12 @@ bool Room::unlockDoors()
     return true;
 }
 
+void Room::clearAlarms()
+{
+    for(int i = 0; i < doors.length(); i++)
+    doors.at(i)->clearAlarms();
+}
+
 /*
 void Room::addDoor(Door door) {
     //instanciate door

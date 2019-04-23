@@ -40,6 +40,7 @@ public:
     bool lockDoors();
     QString name;
     void redrawDoors();
+    void clearAlarms();
 
 
 

@@ -18,14 +18,15 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void reDraw();
 
-    void setFireAlarmState(bool lock);
+    void setFireAlarmState(bool inState);
     bool getFireAlarmState();
 
-    void setSmokeAlarmState(bool lock);
+    void setSmokeAlarmState(bool inState);
     bool getSmokeAlarmState();
 
-    void setSecurityAlarmState(bool lock);
+    void setSecurityAlarmState(bool inState);
     bool getSecurityAlarmState();
+    void clearAlarms();
 
 private:
    bool lock;

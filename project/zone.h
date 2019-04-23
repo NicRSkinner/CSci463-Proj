@@ -15,6 +15,7 @@ public:
     bool lockAllDoors();
     QList<Room *> rooms;
     void unlockDoors();
+    void clearAlarms();
 
 private:
     bool masterAlarm;

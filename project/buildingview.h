@@ -39,6 +39,7 @@ public:
     QGraphicsItemGroup *getFloor1();
     void masterLockdown();
     void masterUnlock();
+    void clearAlarms();
 
 signals:
     void SelectionChanged();

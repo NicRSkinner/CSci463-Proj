@@ -65,6 +65,13 @@ void BuildingView::masterLockdown()
 void BuildingView::masterUnlock()
 {
     zones.at(0)->unlockDoors();
+    zones.at(1)->unlockDoors();
+}
+
+void BuildingView::clearAlarms()
+{
+    zones.at(0)->clearAlarms();
+    zones.at(1)->clearAlarms();
 }
 
 bool BuildingView::MapFloorUp()
