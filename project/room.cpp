@@ -84,6 +84,8 @@ void Room::setSecurityAlarmState(bool inState)
     securityAlarmState = inState;
 
     checkAlarmState(inState);
+    update();
+
 }
 
 bool Room::getSecurityAlarmState()
@@ -96,6 +98,7 @@ void Room::setFireAlarmState(bool inState)
     fireAlarmState = inState;
 
     checkAlarmState(inState);
+    update();
 }
 
 bool Room::getFireAlarmState()
@@ -108,6 +111,7 @@ void Room::setSmokeAlarmState(bool inState)
     smokeAlarmState = inState;
 
     checkAlarmState(inState);
+    update();
 }
 
 bool Room::getSmokeAlarmState()
@@ -135,9 +139,13 @@ QRectF Room::boundingRect() const
 
 void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-
-    painter->setBrush(QBrush(Qt::gray, Qt::BrushStyle::SolidPattern));
-
+    if(fireAlarmState || smokeAlarmState || securityAlarmState)
+    {
+        painter->setBrush(QBrush(Qt::red, Qt::BrushStyle::SolidPattern));
+    }
+    else {
+        painter->setBrush(QBrush(Qt::gray, Qt::BrushStyle::SolidPattern));
+    }
     painter->drawRect(roomBoundary);
     if (isSelected())
     {
@@ -149,14 +157,9 @@ void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         //unlockDoors();
     }
     QFont font = painter->font() ;
-
-    /* twice the size than the current font size */
     font.setPixelSize(60);
-
-    /* set the modified font to the painter */
     painter->setFont(font);
 
-    /* draw text etc. */
     painter->drawText(static_cast<int>(roomBoundary.x() + roomBoundary.width() / 2), static_cast<int>(roomBoundary.y() + roomBoundary.height() / 2), 300, 80, Qt::TextFlag::TextShowMnemonic, name);
 }
 
