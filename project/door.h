@@ -38,9 +38,6 @@ private:
    QPainter *painter;
    const QStyleOptionGraphicsItem *option;
    QWidget *widget;
-    bool fireAlarmState;
-    bool smokeAlarmState;
-    bool securityAlarmState;
 
 };
 

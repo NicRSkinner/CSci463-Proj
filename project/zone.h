@@ -22,5 +22,11 @@ private:
     //QList<Room> roomsList;
     int roomIndex;
     void redrawDoors();
+
+signals:
+    void alarmActivated();
+
+public slots:
+    void alarmSignal();
 };
 #endif // ZONE_H

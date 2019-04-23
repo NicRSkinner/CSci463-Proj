@@ -11,6 +11,7 @@
 #include "QGraphicsView"
 #include "graphicsviewzoom.h"
 #include "room.h"
+#include "building.h"
 
 namespace Ui {
 class MainWindow;
@@ -46,6 +47,11 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
+
+private slots:
+    void AlarmActivated();
+    void UpdateTimeout();
+    void on_pushButtonTestStart_clicked();
 };
 
 #endif // MAINWINDOW_H

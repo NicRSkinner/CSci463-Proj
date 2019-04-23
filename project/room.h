@@ -13,14 +13,32 @@ class Room : public QGraphicsObject
 {
     Q_OBJECT
 private:
-    bool securityAlarm, fireAlarm, signs;
+    bool signs;
     //QList<Door> doors;
     //void addDoor(Door door);
     QRectF roomBoundary;
     QList<Door *> doors;
     int doorIndex;
 
+    bool fireAlarmState = false;
+    bool smokeAlarmState = false;
+    bool securityAlarmState = false;
+
+    void checkAlarmState(bool state);
+
 public:
+    void setFireAlarmState(bool inState);
+    bool getFireAlarmState();
+
+    void setSmokeAlarmState(bool inState);
+    bool getSmokeAlarmState();
+
+    void setSecurityAlarmState(bool inState);
+    bool getSecurityAlarmState();
+    void clearAlarms();
+    void setSigns(bool inVal);
+
+
     explicit Room(QRectF roomBounds, QString inName, QObject *inParent);
     //Room(const Room &obj);
     //explicit Room(QWidget *parent = nullptr);
@@ -30,8 +48,6 @@ public:
     void deactivateFireAlarm();
     void setSign(bool sign);
     bool getSign();
-    bool getFireAlarmState();
-    bool getSecurityAlarmState();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void paint();
@@ -40,7 +56,6 @@ public:
     bool lockDoors();
     QString name;
     void redrawDoors();
-    void clearAlarms();
 
 
 
@@ -48,6 +63,7 @@ public:
 
 
 signals:
+    void alarmSet();
 
 public slots:
 };
