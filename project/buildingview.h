@@ -24,7 +24,6 @@ private:
     int currentSceneIndex;
     const int totalFloorCount = 2;
     QGraphicsScene *currentScenePtr;
-    QList<Zone *> zones;
     QList<Room *> rooms;
     Door *testDoor;
     Door *testDoor2;
@@ -42,6 +41,7 @@ public:
     void masterLockdown();
     void masterUnlock();
     void clearAlarms();
+    QList<Zone *> zones;
 
 signals:
     void SelectionChanged();

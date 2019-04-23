@@ -46,6 +46,9 @@ void BuildingView::SceneSelectionChanged()
 Room* BuildingView::getSelectedRoom()
 {
     // We're only able to select rooms on screen, so this cast should work
+    if (selectedItem == nullptr)
+        return nullptr;
+
     return dynamic_cast<Room *>(selectedItem);
 }
 

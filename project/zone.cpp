@@ -24,8 +24,6 @@ Zone::Zone(QObject *inParent, int inZone)
     }
     if(inZone == 2)
     {
-
-
         rooms.append(new Room(QRectF(-1500/2, -2500/2, 1800/2, 1800/2), "Room 103", this));
         static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(0)->addItem(rooms.at(roomIndex));
         roomIndex++;

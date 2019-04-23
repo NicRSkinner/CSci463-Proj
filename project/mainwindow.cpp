@@ -29,7 +29,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionSystem_Test_GUI_triggered()
 {
-    tb.exec();
+
 }
 
 void MainWindow::RoomSelectionUpdated()
@@ -143,4 +143,20 @@ void MainWindow::AlarmActivated()
 void MainWindow::UpdateTimeout()
 {
 
+}
+
+void MainWindow::on_pushButtonTestStart_clicked()
+{
+    Zone *currZone;
+    if (ui->buildingViewMap->getSelectedRoom() == nullptr)
+    {
+        currZone = ui->buildingViewMap->zones.at(0);
+    }
+    else
+    {
+        currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
+    }
+
+    //tb.addZone(currZone);
+    //tb.exec();
 }
