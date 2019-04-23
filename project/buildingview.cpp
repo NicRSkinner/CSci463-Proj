@@ -2,6 +2,7 @@
 
 BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
 {
+    setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
     // Set up Scenes
     for (int i = 0; i < totalFloorCount; i++)
     {
