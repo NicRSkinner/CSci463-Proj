@@ -16,6 +16,7 @@ class BuildingView : public QGraphicsView
     Q_OBJECT
 private:
     QGraphicsItemGroup *doorsFloor1;
+    QGraphicsItemGroup *doorsFloor2;
 
     QBrush brushAllClearUnlocked = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
     Graphics_view_zoom *graphicsViewZoom;
@@ -37,6 +38,7 @@ public:
     Room* getSelectedRoom();
     QList<QGraphicsScene *> getMasterFloorScene();
     QGraphicsItemGroup *getFloor1();
+    QGraphicsItemGroup *getFloor2();
     void masterLockdown();
     void masterUnlock();
     void clearAlarms();

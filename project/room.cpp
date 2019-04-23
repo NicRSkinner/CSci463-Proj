@@ -55,10 +55,64 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         doorIndex++;
     }
-    if(inName.compare("Elevator") == 0)
+
+    if(inName.compare("Elevator 1") == 0)
     {
         doors.append(new Door(true, (QRectF(1900/2, 300/2, 250/2, 100/2)), -90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
+        doorIndex++;
+    }
+
+   //For floor 2
+    if(inName.compare("Room 202") == 0)
+    {
+        doors.append(new Door(true, (QRectF(-800/2, -800/2, 250/2, 100/2)), 0, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
+        doorIndex++;
+
+        doors.append(new Door(true, (QRectF(-900/2, -900/2, 250/2, 100/2)), 90, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
+        doorIndex++;
+            //testDoor2 = new Door(true, (QRectF(-900/2, -900/2, 500/2, 200/2)), 90, rooms.at(0));
+            //floorScenes.at(0)->addItem(testDoor2);
+            //rooms.at(0)->addDoor(testDoor2);
+    }
+    if(inName.compare("Room 203") == 0)
+    {
+
+        doors.append(new Door(true, (QRectF(1000/2, -1500/2, 250/2, 100/2)), -90, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
+
+
+        //testDoor3 = new Door(true, (QRectF(1000/2, -1500/2, 500/2, 200/2)), -90, rooms.at(1));
+        //floorScenes.at(0)->addItem(testDoor3);
+        //rooms.at(1)->addDoor(testDoor3);
+        doorIndex++;
+    }
+    if(inName.compare("Room 205") == 0)
+    {
+        doors.append(new Door(true, (QRectF(-1900/2, 800/2, 250/2, 100/2)), 90, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
+        doorIndex++;
+    }
+    if(inName.compare("Room 207") == 0)
+    {
+        doors.append(new Door(true, (QRectF(-600/2, 800/2, 250/2, 100/2)), 90, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
+        doorIndex++;
+    }
+
+    if(inName.compare("Room 206") == 0)
+    {
+        doors.append(new Door(true, (QRectF(100/2, 800/2, 250/2, 100/2)), 90, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
+        doorIndex++;
+    }
+
+    if(inName.compare("Elevator 2") == 0)
+    {
+        doors.append(new Door(true, (QRectF(1900/2, 300/2, 250/2, 100/2)), -90, this));
+        static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
         doorIndex++;
     }
 
