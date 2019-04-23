@@ -83,7 +83,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_10">
+                <widget class="QLabel" name="labelSprinklerSystem">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -101,7 +101,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_11">
+                <widget class="QLabel" name="labelSecurityAlarm">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -119,7 +119,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_12">
+                <widget class="QLabel" name="labelGunTurrets">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -137,7 +137,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_13">
+                <widget class="QLabel" name="labelElectricity">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -155,7 +155,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_14">
+                <widget class="QLabel" name="labelFireAlarm">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -173,7 +173,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_15">
+                <widget class="QLabel" name="labelSmokeAlarm">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -191,7 +191,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_16">
+                <widget class="QLabel" name="labelSecurityAlarm_2">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -209,7 +209,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_17">
+                <widget class="QLabel" name="labelOccupation">
                  <property name="text">
                   <string>TextLabel</string>
                  </property>
@@ -304,7 +304,7 @@
                </font>
               </property>
               <property name="text">
-               <string>00:00</string>
+               <string>30</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -358,7 +358,7 @@
          <widget class="QWidget" name="widgetMapView" native="true">
           <layout class="QGridLayout" name="gridLayout_3" rowstretch="0" columnstretch="16,1">
            <item row="0" column="0">
-            <widget class="BuildingView" name="graphicsViewMap"/>
+            <widget class="BuildingView" name="buildingViewMap"/>
            </item>
            <item row="0" column="1">
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -472,7 +472,7 @@ Down</string>
              </widget>
             </item>
             <item row="1" column="2">
-             <widget class="QPushButton" name="pushButton_7">
+             <widget class="QPushButton" name="pushButtonTestStart">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                 <horstretch>0</horstretch>
@@ -485,7 +485,7 @@ Down</string>
                </font>
               </property>
               <property name="text">
-               <string>Custom 2</string>
+               <string>Test System</string>
               </property>
              </widget>
             </item>
@@ -533,7 +533,7 @@ Down</string>
      <x>0</x>
      <y>0</y>
      <width>1702</width>
-     <height>22</height>
+     <height>40</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTools">
@@ -569,7 +569,7 @@ Down</string>
   <connection>
    <sender>pushButtonFloorDown</sender>
    <signal>released()</signal>
-   <receiver>graphicsViewMap</receiver>
+   <receiver>buildingViewMap</receiver>
    <slot>MapFloorDown()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -585,7 +585,7 @@ Down</string>
   <connection>
    <sender>pushButtonFloorUp</sender>
    <signal>released()</signal>
-   <receiver>graphicsViewMap</receiver>
+   <receiver>buildingViewMap</receiver>
    <slot>MapFloorUp()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -599,7 +599,7 @@ Down</string>
    </hints>
   </connection>
   <connection>
-   <sender>graphicsViewMap</sender>
+   <sender>buildingViewMap</sender>
    <signal>SelectionChanged()</signal>
    <receiver>MainWindow</receiver>
    <slot>RoomSelectionUpdated()</slot>

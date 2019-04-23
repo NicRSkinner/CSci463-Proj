@@ -19,33 +19,11 @@ void Door::reDraw()
 }
 void Door::setLockState(bool value) {
     lock = value;
-    //this->update();
+    update();
 }
 
 bool Door::getLockState() {
     return lock;
-}
-
-void Door::setSecurityAlarmState(bool inState)
-{
-    securityAlarmState = inState;
-}
-
-void Door::setFireAlarmState(bool inState)
-{
-    fireAlarmState = inState;
-}
-
-void Door::setSmokeAlarmState(bool inState)
-{
-    smokeAlarmState = inState;
-}
-
-void Door::clearAlarms()
-{
-    setFireAlarmState(false);
-    setSmokeAlarmState(false);
-    setSecurityAlarmState(false);
 }
 
 
