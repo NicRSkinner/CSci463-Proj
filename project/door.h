@@ -16,15 +16,31 @@ public:
     void setLockState(bool lock);
     bool getLockState();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    void reDraw();
+
+    void setFireAlarmState(bool inState);
+    bool getFireAlarmState();
+
+    void setSmokeAlarmState(bool inState);
+    bool getSmokeAlarmState();
+
+    void setSecurityAlarmState(bool inState);
+    bool getSecurityAlarmState();
+    void clearAlarms();
+
 private:
    bool lock;
    QRectF doorBoundary;
    QRectF boundingRect() const override;
+   QString name;
 
 
    QPainter *painter;
    const QStyleOptionGraphicsItem *option;
    QWidget *widget;
+    bool fireAlarmState;
+    bool smokeAlarmState;
+    bool securityAlarmState;
 
 };
 

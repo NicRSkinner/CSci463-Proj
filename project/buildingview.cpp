@@ -8,6 +8,8 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
         floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
         connect(floorScenes.at(i), SIGNAL(selectionChanged()), this, SLOT(SceneSelectionChanged())); //connect the signal from the scene for when a selection is changed and use it to update ours
     }
+    doorsFloor1 = new QGraphicsItemGroup();
+
     currentSceneIndex = 0;
     currentScenePtr = floorScenes.first();
     setScene(currentScenePtr);
@@ -48,26 +50,28 @@ Room* BuildingView::getSelectedRoom()
 
 void BuildingView::setUpRooms()
 {
+    zones.append(new Zone(this, 1));
+    zones.append(new Zone(this, 2));
 
-    rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2)));
-    floorScenes.at(0)->addItem(rooms.at(0));
-    rooms.append(new Room(QRectF(-1500/2, -2500/2, 1800/2, 1800/2)));
-    floorScenes.at(0)->addItem(rooms.at(1));
+    floorScenes.at(0)->addItem(doorsFloor1);
+}
 
-    testDoor = new Door(true, (QRectF(-800/2, -800/2, 500/2, 200/2)), 0, rooms.at(0));
-    floorScenes.at(0)->addItem(testDoor);
-    rooms.at(0)->addDoor(testDoor);
+void BuildingView::masterLockdown()
+{
+    zones.at(0)->lockAllDoors();
+    zones.at(1)->lockAllDoors();
+}
 
-    testDoor2 = new Door(true, (QRectF(-900/2, -900/2, 500/2, 200/2)), 90, rooms.at(0));
-    floorScenes.at(0)->addItem(testDoor2);
-    rooms.at(0)->addDoor(testDoor2);
+void BuildingView::masterUnlock()
+{
+    zones.at(0)->unlockDoors();
+    zones.at(1)->unlockDoors();
+}
 
-    testDoor3 = new Door(true, (QRectF(1000/2, -1500/2, 500/2, 200/2)), -90, rooms.at(1));
-    floorScenes.at(0)->addItem(testDoor3);
-    rooms.at(1)->addDoor(testDoor3);
-
-    //rooms.append(new Room(QRectF(0, -900/2, 900/2, 1800/2)));
-    //floorScenes.at(1)->addItem(rooms.at(1));
+void BuildingView::clearAlarms()
+{
+    zones.at(0)->clearAlarms();
+    zones.at(1)->clearAlarms();
 }
 
 bool BuildingView::MapFloorUp()
@@ -94,4 +98,14 @@ bool BuildingView::MapFloorDown()
     currentScenePtr = floorScenes.at(currentSceneIndex);
     setScene(currentScenePtr);
     return true;
+}
+
+QList<QGraphicsScene *> BuildingView::getMasterFloorScene()
+{
+    return floorScenes;
+}
+
+QGraphicsItemGroup *BuildingView::getFloor1()
+{
+    return doorsFloor1;
 }

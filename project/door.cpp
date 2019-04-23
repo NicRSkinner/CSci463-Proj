@@ -12,12 +12,40 @@ Door::Door(bool inState, QRectF doorBounds, qreal inRotation, QGraphicsObject *i
     setParent(inParent);
 }
 
+void Door::reDraw()
+{
+    //this->update();
+    //paint(painter, nullptr, nullptr);
+}
 void Door::setLockState(bool value) {
     lock = value;
+    //this->update();
 }
 
 bool Door::getLockState() {
     return lock;
+}
+
+void Door::setSecurityAlarmState(bool inState)
+{
+    securityAlarmState = inState;
+}
+
+void Door::setFireAlarmState(bool inState)
+{
+    fireAlarmState = inState;
+}
+
+void Door::setSmokeAlarmState(bool inState)
+{
+    smokeAlarmState = inState;
+}
+
+void Door::clearAlarms()
+{
+    setFireAlarmState(false);
+    setSmokeAlarmState(false);
+    setSecurityAlarmState(false);
 }
 
 
@@ -29,7 +57,7 @@ QRectF Door::boundingRect() const
 
 void Door::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-
+    //this->painter = painter;
     painter->setBrush(QBrush(Qt::blue, Qt::BrushStyle::SolidPattern));
 
     painter->drawRect(doorBoundary);
