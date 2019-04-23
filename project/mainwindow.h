@@ -47,8 +47,6 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
-    Building mainBuilding;
-    Zone currentZone;
 };
 
 #endif // MAINWINDOW_H

@@ -33,23 +33,55 @@ void MainWindow::on_actionSystem_Test_GUI_triggered()
 void MainWindow::RoomSelectionUpdated()
 {
    //This gets updated every time the selection is changed in the buildingview
-   //ui->graphicsViewMap->getSelectedRoom() will return a pointer to a room object, which is null if nothing is selected
-   ui->labelTimeSTATIC->setText("TEST");
+   Room *selectedRoom = ui->buildingViewMap->getSelectedRoom(); // will return a pointer to a room object, which is null if nothing is selected
+   //ui->labelTimeSTATIC->setText("TEST");
+
+   if (selectedRoom == nullptr)
+       return;
+
+   if (selectedRoom->getFireAlarmState())
+   {
+       ui->labelSprinklerSystem->setText("Activated");
+   }
+   else
+   {
+       ui->labelSprinklerSystem->setText("Deactivated");
+   }
+
+   if (selectedRoom->getSecurityAlarmState())
+   {
+       ui->labelSecurityAlarm->setText("Activated");
+   }
+   else
+   {
+       ui->labelSecurityAlarm->setText("Deactivated");
+   }
+
+   ui->labelGunTurrets->setText("Activated");
+
+   // Electricity
+   // Fire Alarm
+   // Smoke Alarm
+   // Security Alarm
+   // Occupation
+
+
+
 }
 
 void MainWindow::on_pushButtonLockdown_clicked()
 {
-    currentZone.lockAllDoors();
+    ui->buildingViewMap->masterLockdown();
 }
 
 void MainWindow::on_pushButtonMasterUnlock_clicked()
 {
-    currentZone.unlockDoors();
+    ui->buildingViewMap->masterUnlock();
 }
 
 void MainWindow::on_pushButtonClearAlarms_clicked()
 {
-    currentZone.clearAlarms();
+    ui->buildingViewMap->clearAlarms();
 }
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
