@@ -63,6 +63,7 @@ Room::Room(const Room &obj)
 void Room::activateFireAlarm() {
     fireAlarm = true;
 }
+
 void Room::deactivateFireAlarm() {
     fireAlarm = false;
 }

@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    loginwindow.cpp \
     buildingview.cpp \
     graphicsviewzoom.cpp \
         main.cpp \
@@ -39,6 +40,7 @@ SOURCES += \
     adminoptions.cpp
 
 HEADERS += \
+    loginwindow.h \
     buildingview.h \
     graphicsviewzoom.h \
         mainwindow.h \
@@ -52,6 +54,7 @@ HEADERS += \
     adminoptions.h
 
 FORMS += \
+    loginwindow.ui \
         mainwindow.ui \
     testbench.ui \
     adminoptions.ui
