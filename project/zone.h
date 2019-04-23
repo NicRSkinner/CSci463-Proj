@@ -19,5 +19,6 @@ private:
     bool masterAlarm;
     //QList<Room> roomsList;
     int roomIndex;
+    void redrawDoors();
 };
 #endif // ZONE_H

@@ -16,6 +16,7 @@ public:
     void setLockState(bool lock);
     bool getLockState();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    void reDraw();
 private:
    bool lock;
    QRectF doorBoundary;
@@ -26,6 +27,7 @@ private:
    QPainter *painter;
    const QStyleOptionGraphicsItem *option;
    QWidget *widget;
+
 
 };
 

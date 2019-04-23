@@ -1,5 +1,6 @@
 #include "zone.h"
 #include "buildingview.h"
+#include <QGraphicsItemGroup>
 
    Zone::Zone(QObject *inParent, int inZone)
    {
@@ -23,6 +24,15 @@
             roomIndex++;
 
         }
+        //redrawDoors();
+   }
+
+   void Zone::redrawDoors()
+   {
+       for (int i = 0; i < rooms.length(); i++)
+       {
+           rooms.at(i)->redrawDoors();
+       }
    }
 
    bool Zone::setMasterAlarm(bool inAlarmState)

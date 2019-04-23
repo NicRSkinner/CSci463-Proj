@@ -8,12 +8,15 @@
 #include <QGraphicsRectItem>
 #include "graphicsviewzoom.h"
 #include "zone.h"
+#include <QGraphicsItemGroup>
 
 
 class BuildingView : public QGraphicsView
 {
     Q_OBJECT
 private:
+    QGraphicsItemGroup *doorsFloor1;
+
     QBrush brushAllClearUnlocked = QBrush(Qt::blue, Qt::BrushStyle::SolidPattern);
     Graphics_view_zoom *graphicsViewZoom;
     QList<QGraphicsScene *> floorScenes;
@@ -32,6 +35,8 @@ public:
     explicit BuildingView(QWidget *parent = nullptr);
     void setUpRooms();
     Room* getSelectedRoom();
+    QList<QGraphicsScene *> getMasterFloorScene();
+    QGraphicsItemGroup *getFloor1();
 
 signals:
     void SelectionChanged();
@@ -39,7 +44,7 @@ public slots:
     bool MapFloorUp();
     bool MapFloorDown();
     void SceneSelectionChanged();
-    QList<QGraphicsScene *> getMasterFloorScene();
+
 private slots:
 
 };

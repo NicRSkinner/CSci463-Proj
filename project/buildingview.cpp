@@ -8,6 +8,8 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
         floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
         connect(floorScenes.at(i), SIGNAL(selectionChanged()), this, SLOT(SceneSelectionChanged())); //connect the signal from the scene for when a selection is changed and use it to update ours
     }
+    doorsFloor1 = new QGraphicsItemGroup();
+
     currentSceneIndex = 0;
     currentScenePtr = floorScenes.first();
     setScene(currentScenePtr);
@@ -71,6 +73,8 @@ void BuildingView::setUpRooms()
 
     //rooms.append(new Room(QRectF(0, -900/2, 900/2, 1800/2)));
     //floorScenes.at(1)->addItem(rooms.at(1));
+
+    floorScenes.at(0)->addItem(doorsFloor1);
 }
 
 bool BuildingView::MapFloorUp()
@@ -102,4 +106,9 @@ bool BuildingView::MapFloorDown()
 QList<QGraphicsScene *> BuildingView::getMasterFloorScene()
 {
     return floorScenes;
+}
+
+QGraphicsItemGroup *BuildingView::getFloor1()
+{
+    return doorsFloor1;
 }
