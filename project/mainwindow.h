@@ -11,6 +11,7 @@
 #include "QGraphicsView"
 #include "graphicsviewzoom.h"
 #include "room.h"
+#include "building.h"
 
 namespace Ui {
 class MainWindow;
@@ -46,6 +47,8 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
+    Building mainBuilding;
+    Zone currentZone;
 };
 
 #endif // MAINWINDOW_H

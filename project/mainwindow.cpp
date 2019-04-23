@@ -39,17 +39,17 @@ void MainWindow::RoomSelectionUpdated()
 
 void MainWindow::on_pushButtonLockdown_clicked()
 {
-
+    currentZone.lockAllDoors();
 }
 
 void MainWindow::on_pushButtonMasterUnlock_clicked()
 {
-
+    currentZone.unlockDoors();
 }
 
 void MainWindow::on_pushButtonClearAlarms_clicked()
 {
-
+    currentZone.clearAlarms();
 }
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
