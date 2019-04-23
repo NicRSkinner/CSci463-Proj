@@ -20,7 +20,6 @@ testBench::~testBench()
 
 void testBench::on_pushButtonClose_clicked()
 {
-
     this->close();
 }
 

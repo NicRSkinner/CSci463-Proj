@@ -148,7 +148,7 @@ void MainWindow::UpdateTimeout()
 void MainWindow::on_pushButtonTestStart_clicked()
 {
     Zone *currZone;
-    if (ui->buildingViewMap->getSelectedRoom() == nullptr)
+    if (ui->buildingViewMap->getSelectedRoom() != nullptr)
     {
         currZone = ui->buildingViewMap->zones.at(0);
     }
@@ -157,6 +157,6 @@ void MainWindow::on_pushButtonTestStart_clicked()
         currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
 
-    //tb.addZone(currZone);
-    //tb.exec();
+    tb.addZone(currZone);
+    tb.exec();
 }
