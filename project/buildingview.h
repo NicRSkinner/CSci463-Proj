@@ -7,7 +7,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include "graphicsviewzoom.h"
-#include "room.h"
+#include "zone.h"
+
 
 class BuildingView : public QGraphicsView
 {
@@ -19,6 +20,7 @@ private:
     int currentSceneIndex;
     const int totalFloorCount = 2;
     QGraphicsScene *currentScenePtr;
+    QList<Zone *> zones;
     QList<Room *> rooms;
     Door *testDoor;
     Door *testDoor2;
@@ -37,6 +39,7 @@ public slots:
     bool MapFloorUp();
     bool MapFloorDown();
     void SceneSelectionChanged();
+    QList<QGraphicsScene *> getMasterFloorScene();
 private slots:
 
 };

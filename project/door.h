@@ -20,6 +20,7 @@ private:
    bool lock;
    QRectF doorBoundary;
    QRectF boundingRect() const override;
+   QString name;
 
 
    QPainter *painter;

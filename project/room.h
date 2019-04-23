@@ -19,7 +19,7 @@ private:
     QRectF roomBoundary;
     QList<Door *> doors;
 public:
-    explicit Room(QRectF roomBounds);
+    explicit Room(QRectF roomBounds, QString inName, QObject *inParent);
     //Room(const Room &obj);
     //explicit Room(QWidget *parent = nullptr);
     void activateSecurityAlarm();
@@ -36,6 +36,7 @@ public:
     bool addDoor(Door *inDoor);
     bool unlockDoors();
     bool lockDoors();
+    QString name;
 
 
     //QList<Door> getDoors(); //Blanking on how classes work in header files

@@ -3,7 +3,7 @@
 //bool securityAlarm, fireAlarm, signs;
 
 
-Room::Room(QRectF roomBounds) : QGraphicsObject()
+Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObject()
 {
 
     // TODO : FINISH CONSTRUCTOR
@@ -13,6 +13,8 @@ Room::Room(QRectF roomBounds) : QGraphicsObject()
 
     securityAlarm = false;
     roomBoundary = roomBounds;
+    name = inName;
+    setParent(inParent);
     setFlag(GraphicsItemFlag::ItemIsSelectable, true);
 }
 /*
