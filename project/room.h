@@ -20,9 +20,9 @@ private:
     QList<Door *> doors;
     int doorIndex;
 
-    bool fireAlarmState;
-    bool smokeAlarmState;
-    bool securityAlarmState;
+    bool fireAlarmState = false;
+    bool smokeAlarmState = false;
+    bool securityAlarmState = false;
 
 public:
     void setFireAlarmState(bool inState);
