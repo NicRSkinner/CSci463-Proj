@@ -19,7 +19,7 @@ void Door::reDraw()
 }
 void Door::setLockState(bool value) {
     lock = value;
-    this->update();
+    update();
 }
 
 bool Door::getLockState() {
