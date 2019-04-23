@@ -10,6 +10,7 @@
 #include "QGraphicsRectItem"
 #include "QGraphicsView"
 #include "graphicsviewzoom.h"
+#include "room.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,6 +39,8 @@ private slots:
     void on_pushButtonCEmergencyS_clicked();
 
     void on_pushButtonAdminOptions_clicked();
+
+    void RoomSelectionUpdated();
 
 private:
     Ui::MainWindow *ui;

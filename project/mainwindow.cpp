@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     t->setInterval(1000);
     connect(t, &QTimer::timeout, this, &MainWindow::updateTime);
     t->start();
-
+    //connect(ui->graphicsViewMap, SIGNAL(selectionChanged()), this, SLOT(roomSelectionUpdated()));
 }
 
 void MainWindow::updateTime()
@@ -28,6 +28,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionSystem_Test_GUI_triggered()
 {
     tb.exec();
+}
+
+void MainWindow::RoomSelectionUpdated()
+{
+   //This gets updated every time the selection is changed in the buildingview
+   //ui->graphicsViewMap->getSelectedRoom() will return a pointer to a room object, which is null if nothing is selected
+   ui->labelTimeSTATIC->setText("TEST");
 }
 
 void MainWindow::on_pushButtonLockdown_clicked()

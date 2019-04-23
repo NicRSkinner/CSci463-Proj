@@ -356,7 +356,7 @@
         </item>
         <item>
          <widget class="QWidget" name="widgetMapView" native="true">
-          <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0" columnstretch="16,1,0">
+          <layout class="QGridLayout" name="gridLayout_3" rowstretch="0" columnstretch="16,1">
            <item row="0" column="0">
             <widget class="BuildingView" name="graphicsViewMap"/>
            </item>
@@ -558,6 +558,7 @@ Down</string>
    <extends>QGraphicsView</extends>
    <header location="global">buildingview.h</header>
    <slots>
+    <signal>SelectionChanged()</signal>
     <slot>MapFloorUp()</slot>
     <slot>MapFloorDown()</slot>
    </slots>
@@ -597,5 +598,24 @@ Down</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>graphicsViewMap</sender>
+   <signal>SelectionChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>RoomSelectionUpdated()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1049</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>850</x>
+     <y>539</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>RoomSelectionUpdated()</slot>
+ </slots>
 </ui>

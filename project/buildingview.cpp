@@ -6,7 +6,10 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
     for (int i = 0; i < totalFloorCount; i++)
     {
         floorScenes.append(new QGraphicsScene(-2000, -2000, 4000, 4000));
+        connect(floorScenes.at(i), SIGNAL(selectionChanged()), this, SLOT(SceneSelectionChanged())); //connect the signal from the scene for when a selection is changed and use it to update ours
     }
+    doorsFloor1 = new QGraphicsItemGroup();
+
     currentSceneIndex = 0;
     currentScenePtr = floorScenes.first();
     setScene(currentScenePtr);
@@ -24,13 +27,51 @@ BuildingView::BuildingView(QWidget *parent) : QGraphicsView(parent)
     show();
 }
 
+void BuildingView::SceneSelectionChanged()
+{
+    int selectedCount = currentScenePtr->selectedItems().count();
+    if (selectedCount == 1)
+    {
+        selectedItem = currentScenePtr->selectedItems().at(0);
+    }
+    else if (selectedCount == 0)
+    {
+        selectedItem = nullptr;
+    }
+    emit SelectionChanged();
+
+}
+
+Room* BuildingView::getSelectedRoom()
+{
+    // We're only able to select rooms on screen, so this cast should work
+    return dynamic_cast<Room *>(selectedItem);
+}
+
 void BuildingView::setUpRooms()
 {
+    zones.append(new Zone(this, 1));
+    zones.append(new Zone(this, 2));
 
-    rooms.append(new Room(QRectF(-200, -100, 400, 200)));
-    floorScenes.at(0)->addItem(rooms.at(0));
-    rooms.append(new Room(QRectF(0, -100, 200, 200)));
-    floorScenes.at(1)->addItem(rooms.at(1));
+    floorScenes.at(0)->addItem(doorsFloor1);
+}
+
+void BuildingView::masterLockdown()
+{
+    zones.at(0)->lockAllDoors();
+    zones.at(1)->lockAllDoors();
+}
+
+void BuildingView::masterUnlock()
+{
+    zones.at(0)->unlockDoors();
+    zones.at(1)->unlockDoors();
+}
+
+void BuildingView::clearAlarms()
+{
+    zones.at(0)->clearAlarms();
+    zones.at(1)->clearAlarms();
 }
 
 bool BuildingView::MapFloorUp()
@@ -39,7 +80,7 @@ bool BuildingView::MapFloorUp()
     {
         return false;
     }
-
+    currentScenePtr->clearSelection();
     currentSceneIndex += 1;
     currentScenePtr = floorScenes.at(currentSceneIndex);
     setScene(currentScenePtr);
@@ -52,9 +93,19 @@ bool BuildingView::MapFloorDown()
     {
         return false;
     }
-
+    currentScenePtr->clearSelection();
     currentSceneIndex -= 1;
     currentScenePtr = floorScenes.at(currentSceneIndex);
     setScene(currentScenePtr);
     return true;
+}
+
+QList<QGraphicsScene *> BuildingView::getMasterFloorScene()
+{
+    return floorScenes;
+}
+
+QGraphicsItemGroup *BuildingView::getFloor1()
+{
+    return doorsFloor1;
 }
