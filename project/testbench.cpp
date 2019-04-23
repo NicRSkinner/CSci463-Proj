@@ -47,9 +47,6 @@ void testBench::programLoop() {
 
 }
 
-void testBench::close() {
-    this->close();
-}
 
 void testBench::triggerAlarm() {
     //This is where the function for triggering alarm will be. Needs to be setup

@@ -21,7 +21,6 @@ signals:
 
 private slots:
     void on_pushButtonClose_clicked();
-    void close();
     void triggerAlarm();
     void lockDoor();
     //void trigger(); //This is what is going to be consumed. Once the timer timesout(signal) it will look for this emit
