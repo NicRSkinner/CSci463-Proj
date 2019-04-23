@@ -37,7 +37,6 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
         doorIndex++;
     }
 
-    securityAlarm = false;
     roomBoundary = roomBounds;
     name = inName;
     setParent(inParent);
@@ -60,33 +59,35 @@ Room::Room(const Room &obj)
     fireAlarm = obj.fireAlarm;
 }
 */
-void Room::activateFireAlarm() {
-    fireAlarm = true;
+
+
+void Room::setSecurityAlarmState(bool inState)
+{
+    securityAlarmState = inState;
 }
 
-void Room::deactivateFireAlarm() {
-    fireAlarm = false;
+void Room::setFireAlarmState(bool inState)
+{
+    fireAlarmState = inState;
 }
 
-void Room::activateSecurityAlarm() {
-    securityAlarm = true;
+void Room::setSmokeAlarmState(bool inState)
+{
+    smokeAlarmState = inState;
 }
 
-void Room::deactivateSecurityAlarm() {
-    securityAlarm = false;
+void Room::clearAlarms()
+{
+    setFireAlarmState(false);
+    setSmokeAlarmState(false);
+    setSecurityAlarmState(false);
 }
+
 
 void Room::setSign(bool sign) {
     signs = sign;
 }
 
-bool Room::getSecurityAlarmState() {
-    return securityAlarm;
-}
-
-bool Room::getFireAlarmState(){
-    return fireAlarm;
-}
 
 QRectF Room::boundingRect() const
 {
@@ -134,11 +135,9 @@ bool Room::unlockDoors()
     }
     return true;
 }
-
-void Room::clearAlarms()
+void Room::setSigns(bool inVal)
 {
-    for(int i = 0; i < doors.length(); i++)
-    doors.at(i)->clearAlarms();
+    signs = inVal;
 }
 
 /*
