@@ -1,6 +1,7 @@
 #include "room.h"
 #include "buildingview.h"
 #include <QGraphicsItemGroup>
+#include "zone.h"
 
 //bool securityAlarm, fireAlarm, signs;
 
@@ -138,6 +139,10 @@ void Room::setSecurityAlarmState(bool inState)
     securityAlarmState = inState;
 
     checkAlarmState(inState);
+    if(inState)
+    {
+        dynamic_cast<Zone *>(parent())->lockAllDoors();
+    }
     update();
 
 }
