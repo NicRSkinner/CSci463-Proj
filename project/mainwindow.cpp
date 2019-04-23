@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -148,14 +149,22 @@ void MainWindow::UpdateTimeout()
 void MainWindow::on_pushButtonTestStart_clicked()
 {
     Zone *currZone;
+
+    //fetching the total number of zones within the
+    int total = ui->buildingViewMap->zones.count();
+
     if (ui->buildingViewMap->getSelectedRoom() == nullptr)
     {
         currZone = ui->buildingViewMap->zones.at(0);
     }
     else
     {
-        currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
+        int random = rand() % total;
+        currZone = ui->buildingViewMap->zones.at(random);
+        //currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
+
+
 
     tb.addZone(currZone);
     tb.exec();

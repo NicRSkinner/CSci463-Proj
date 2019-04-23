@@ -55,7 +55,11 @@ void testBench::triggerAlarm() {
         qDebug() << "No init";
         return;
     }
-    currZone->rooms.at(0)->unlockDoors();
+    int number = currZone->rooms.count();
+    qDebug() << number;
+    int randomRoom = rand() % number;
+    currZone->rooms.at(randomRoom)->unlockDoors();
+    currZone->rooms.at(randomRoom)->setSmokeAlarmState(true);
     emit ready();
 }
 
