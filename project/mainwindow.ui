@@ -358,7 +358,7 @@
          <widget class="QWidget" name="widgetMapView" native="true">
           <layout class="QGridLayout" name="gridLayout_3" rowstretch="0" columnstretch="16,1">
            <item row="0" column="0">
-            <widget class="BuildingView" name="graphicsViewMap"/>
+            <widget class="BuildingView" name="buildingViewMap"/>
            </item>
            <item row="0" column="1">
             <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -569,7 +569,7 @@ Down</string>
   <connection>
    <sender>pushButtonFloorDown</sender>
    <signal>released()</signal>
-   <receiver>graphicsViewMap</receiver>
+   <receiver>buildingViewMap</receiver>
    <slot>MapFloorDown()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -585,7 +585,7 @@ Down</string>
   <connection>
    <sender>pushButtonFloorUp</sender>
    <signal>released()</signal>
-   <receiver>graphicsViewMap</receiver>
+   <receiver>buildingViewMap</receiver>
    <slot>MapFloorUp()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -599,7 +599,7 @@ Down</string>
    </hints>
   </connection>
   <connection>
-   <sender>graphicsViewMap</sender>
+   <sender>buildingViewMap</sender>
    <signal>SelectionChanged()</signal>
    <receiver>MainWindow</receiver>
    <slot>RoomSelectionUpdated()</slot>
