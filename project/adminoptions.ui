@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>567</width>
-    <height>134</height>
+    <width>1059</width>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,14 +36,24 @@
         <bool>false</bool>
        </property>
        <property name="currentText">
-        <string/>
+        <string>Administrator</string>
        </property>
+       <item>
+        <property name="text">
+         <string>Administrator</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Employee</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonAddOperator">
+      <widget class="QPushButton" name="pushButtonAddUser">
        <property name="text">
-        <string>Add Operator</string>
+        <string>Add User</string>
        </property>
       </widget>
      </item>
@@ -59,7 +69,28 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayoutEditOperator" stretch="3,2,2,3,1">
      <item>
-      <widget class="QComboBox" name="comboBoxSelectOperator"/>
+      <widget class="QComboBox" name="comboBoxSelectOperator">
+       <item>
+        <property name="text">
+         <string>Nick</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>David</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Seth</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sai</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="lineEditUserNameEdit">
@@ -81,14 +112,29 @@
         <bool>false</bool>
        </property>
        <property name="currentText">
-        <string/>
+        <string>Edit</string>
        </property>
+       <item>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Change Privledges</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonEditOperator">
+      <widget class="QPushButton" name="pushButtonEditUser">
        <property name="text">
-        <string>Edit Operator</string>
+        <string>Edit User</string>
        </property>
       </widget>
      </item>
