@@ -186,18 +186,22 @@ void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         painter->setBrush(QBrush(Qt::gray, Qt::BrushStyle::SolidPattern));
     }
     painter->drawRect(roomBoundary);
+
+    QFont font = painter->font() ;
+    font.setPixelSize(60);
+    painter->setFont(font);
     if (isSelected())
     {
         //lockDoors();
         painter->setBrush(QBrush(Qt::black, Qt::BrushStyle::CrossPattern));
         painter->drawRect(roomBoundary);
+        painter->setPen(Qt::white);
     }
     else {
+        painter->setPen(Qt::black);
         //unlockDoors();
     }
-    QFont font = painter->font() ;
-    font.setPixelSize(60);
-    painter->setFont(font);
+
 
     painter->drawText(static_cast<int>(roomBoundary.x() + roomBoundary.width() / 2), static_cast<int>(roomBoundary.y() + roomBoundary.height() / 2), 300, 80, Qt::TextFlag::TextShowMnemonic, name);
 }
