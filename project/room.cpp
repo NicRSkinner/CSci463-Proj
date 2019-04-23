@@ -12,13 +12,13 @@ Room::Room()
     //    setZone(inZone);
 
     securityAlarm = false;
-
 }
 
 
 void Room::activateFireAlarm() {
     fireAlarm = true;
 }
+
 void Room::deactivateFireAlarm() {
     fireAlarm = false;
 }

@@ -1,13 +1,12 @@
 #include "zone.h"
 
-   Zone::Zone()
-   {
-       masterAlarm = false;
-   }
+Zone::Zone()
+{
+   masterAlarm = false;
+}
 
-   bool Zone::setMasterAlarm(bool inAlarmState)
-   {
-       masterAlarm = inAlarmState;
-       return true;
-   }
-
+bool Zone::setMasterAlarm(bool inAlarmState)
+{
+   masterAlarm = inAlarmState;
+   return true;
+}

@@ -15,5 +15,3 @@ void Door::setLockState(bool value) {
 bool Door::getLockState() {
     return lock;
 }
-
-
