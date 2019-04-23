@@ -2,6 +2,7 @@
 #define TESTBENCH_H
 
 #include <QDialog>
+#include "zone.h"
 
 namespace Ui {
 class testBench;
@@ -16,6 +17,8 @@ public:
     void programLoop();
     ~testBench();
 
+    void addZone(Zone *currentZone);
+
 signals:
     void ready();
 
@@ -27,6 +30,7 @@ private slots:
 
 private:
     Ui::testBench *ui;
+    Zone *currZone;
 };
 
 #endif // TESTBENCH_H

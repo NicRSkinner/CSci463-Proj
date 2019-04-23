@@ -57,3 +57,8 @@ void testBench::triggerAlarm() {
 void testBench::lockDoor() {
 
 }
+
+void testBench::addZone(Zone *currentZone)
+{
+    currZone = currentZone;
+}
