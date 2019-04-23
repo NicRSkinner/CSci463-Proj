@@ -47,7 +47,8 @@ void MainWindow::on_pushButtonClearAlarms_clicked()
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
 {
-
+    // Send to incident log
+    // contact method
 }
 
 void MainWindow::on_pushButtonAdminOptions_clicked()
