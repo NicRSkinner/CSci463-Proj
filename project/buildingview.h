@@ -43,10 +43,12 @@ public:
 
 signals:
     void SelectionChanged();
+    void activateAlarm();
 public slots:
     bool MapFloorUp();
     bool MapFloorDown();
     void SceneSelectionChanged();
+    void AlarmActivated();
 
 private slots:
 

@@ -41,6 +41,8 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
     name = inName;
     setParent(inParent);
     setFlag(GraphicsItemFlag::ItemIsSelectable, true);
+
+    connect(this, SIGNAL(alarmSet()), inParent, SLOT(alarmSignal()));
 }
 
 void Room::redrawDoors()
@@ -64,16 +66,37 @@ Room::Room(const Room &obj)
 void Room::setSecurityAlarmState(bool inState)
 {
     securityAlarmState = inState;
+
+    checkAlarmState(inState);
+}
+
+bool Room::getSecurityAlarmState()
+{
+    return securityAlarmState;
 }
 
 void Room::setFireAlarmState(bool inState)
 {
     fireAlarmState = inState;
+
+    checkAlarmState(inState);
+}
+
+bool Room::getFireAlarmState()
+{
+    return fireAlarmState;
 }
 
 void Room::setSmokeAlarmState(bool inState)
 {
     smokeAlarmState = inState;
+
+    checkAlarmState(inState);
+}
+
+bool Room::getSmokeAlarmState()
+{
+    return smokeAlarmState;
 }
 
 void Room::clearAlarms()
@@ -138,6 +161,12 @@ bool Room::unlockDoors()
 void Room::setSigns(bool inVal)
 {
     signs = inVal;
+}
+
+void Room::checkAlarmState(bool state)
+{
+    if (state == true)
+        emit alarmSet();
 }
 
 /*

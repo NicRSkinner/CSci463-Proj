@@ -25,6 +25,8 @@ Zone::Zone(QObject *inParent, int inZone)
 
     }
     //redrawDoors();
+
+    connect(this, SIGNAL(alarmActivated()), inParent, SLOT(AlarmActivated()));
 }
 
 void Zone::redrawDoors()
@@ -58,4 +60,9 @@ void Zone::clearAlarms()
 {
     for(int i = 0; i < rooms.length(); i++)
     rooms.at(i)->clearAlarms();
+}
+
+void Zone::alarmSignal()
+{
+    emit alarmActivated();
 }

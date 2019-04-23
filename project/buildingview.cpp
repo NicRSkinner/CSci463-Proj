@@ -109,3 +109,8 @@ QGraphicsItemGroup *BuildingView::getFloor1()
 {
     return doorsFloor1;
 }
+
+void BuildingView::AlarmActivated()
+{
+    emit activateAlarm();
+}

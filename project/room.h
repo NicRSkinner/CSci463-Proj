@@ -24,6 +24,8 @@ private:
     bool smokeAlarmState;
     bool securityAlarmState;
 
+    void checkAlarmState(bool state);
+
 public:
     void setFireAlarmState(bool inState);
     bool getFireAlarmState();
@@ -61,6 +63,7 @@ public:
 
 
 signals:
+    void alarmSet();
 
 public slots:
 };
