@@ -43,44 +43,40 @@ Zone::Zone(QObject *inParent, int inZone)
         roomIndex++;
 
     }
+    if(inZone == 3)
+    {
+        rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2), "Room 202", this));
+        //floorScenes.at(0)->addItem(zones.at(0)->rooms.at(0));
+        static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
+        roomIndex++;
+               // addItem(zones.at(0)->rooms.at(0));
+
+        rooms.append(new Room(QRectF(-1500/2, -2500/2, 1800/2, 1800/2), "Room 203", this));
+        static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
+        roomIndex++;
+
+        rooms.append(new Room(QRectF(-2000/2, -2500/2, 1200/2, 900/2), "Room 205", this));
+        static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
+        roomIndex++;
+
+        rooms.append(new Room(QRectF(-2000/2, -000/2, 1200/2, 900/2), "Room 206", this));
+        static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
+        roomIndex++;
+
+        rooms.append(new Room(QRectF(-2000/2, -800/2, 1200/2, 900/2), "Room 207", this));
+        static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
+        roomIndex++;
+
+
+
+        rooms.append(new Room(QRectF(300/2, -2500/2, 1100/2, 1100/2), "Elevator 2", this));
+        static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
+        roomIndex++;
+
+    }
     //redrawDoors();
     connect(this, SIGNAL(alarmActivated()), inParent, SLOT(AlarmActivated()));
 }
-        }
-
-        if(inZone == 3)
-        {
-            rooms.append(new Room(QRectF(-900/2, -900/2, 1800/2, 1800/2), "Room 202", this));
-            //floorScenes.at(0)->addItem(zones.at(0)->rooms.at(0));
-            static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
-            roomIndex++;
-                   // addItem(zones.at(0)->rooms.at(0));
-
-            rooms.append(new Room(QRectF(-1500/2, -2500/2, 1800/2, 1800/2), "Room 203", this));
-            static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
-            roomIndex++;
-
-            rooms.append(new Room(QRectF(-2000/2, -2500/2, 1200/2, 900/2), "Room 205", this));
-            static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
-            roomIndex++;
-
-            rooms.append(new Room(QRectF(-2000/2, -000/2, 1200/2, 900/2), "Room 206", this));
-            static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
-            roomIndex++;
-
-            rooms.append(new Room(QRectF(-2000/2, -800/2, 1200/2, 900/2), "Room 207", this));
-            static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
-            roomIndex++;
-
-
-
-            rooms.append(new Room(QRectF(300/2, -2500/2, 1100/2, 1100/2), "Elevator 2", this));
-            static_cast<BuildingView *>(inParent)->getMasterFloorScene().at(1)->addItem(rooms.at(roomIndex));
-            roomIndex++;
-
-        }
-        //redrawDoors();
-   }
 
 void Zone::redrawDoors()
 {
