@@ -12,3 +12,12 @@ LoginWindow::~LoginWindow()
 {
     delete ui;
 }
+
+void LoginWindow::on_pushButton_clicked()
+{
+    if(ui->loginUsername->text() == "Nick" && ui->loginPassword->text() == "Skinner")
+    {
+        mainWindow.show();
+        this->close();
+    }
+}

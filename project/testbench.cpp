@@ -20,7 +20,6 @@ testBench::~testBench()
 
 void testBench::on_pushButtonClose_clicked()
 {
-
     this->close();
 }
 
@@ -29,7 +28,7 @@ void testBench::programLoop() {
 
     //Create class instant for each object
     this->triggerAlarm();
-    connect(this, SIGNAL(ready()), this, SLOT(close()));
+    //connect(this, SIGNAL(ready()), this, SLOT(close()));
     // Initial test, closes program after 10 seconds
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(triggerAlarm()));
@@ -56,4 +55,9 @@ void testBench::triggerAlarm() {
 
 void testBench::lockDoor() {
 
+}
+
+void testBench::addZone(Zone *currentZone)
+{
+    currZone = currentZone;
 }
