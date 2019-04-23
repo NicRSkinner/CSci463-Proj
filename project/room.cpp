@@ -170,9 +170,17 @@ QRectF Room::boundingRect() const
 
 void Room::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    if(fireAlarmState || smokeAlarmState || securityAlarmState)
+    if(fireAlarmState)
     {
         painter->setBrush(QBrush(Qt::red, Qt::BrushStyle::SolidPattern));
+    }
+    else if(smokeAlarmState)
+    {
+        painter->setBrush(QBrush(Qt::red, Qt::BrushStyle::SolidPattern));
+    }
+    else if(securityAlarmState)
+    {
+        painter->setBrush(QBrush(Qt::yellow, Qt::BrushStyle::SolidPattern));
     }
     else {
         painter->setBrush(QBrush(Qt::gray, Qt::BrushStyle::SolidPattern));
