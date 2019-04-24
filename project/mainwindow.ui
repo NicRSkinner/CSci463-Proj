@@ -271,7 +271,7 @@
           <item>
            <widget class="QLabel" name="labelEmergencyServices">
             <property name="text">
-             <string>Emergency Services Contacted</string>
+             <string/>
             </property>
            </widget>
           </item>
