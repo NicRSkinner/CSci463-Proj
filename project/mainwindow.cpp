@@ -120,6 +120,7 @@ void MainWindow::on_pushButtonMasterUnlock_clicked()
 void MainWindow::on_pushButtonClearAlarms_clicked()
 {
     ui->buildingViewMap->clearAlarms();
+    tb.resetButton(1);
 }
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
@@ -150,22 +151,25 @@ void MainWindow::on_pushButtonTestStart_clicked()
 {
     Zone *currZone;
 
+
     //fetching the total number of zones within the
     int total = ui->buildingViewMap->zones.count();
 
     if (ui->buildingViewMap->getSelectedRoom() == nullptr)
     {
-        currZone = ui->buildingViewMap->zones.at(0);
+        int random = rand() % total;
+        currZone = ui->buildingViewMap->zones.at(random);
     }
     else
     {
+        //Generates random zone number and sets that.
         int random = rand() % total;
         currZone = ui->buildingViewMap->zones.at(random);
         //currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
 
 
-
+    tb.resetButton(0);
     tb.addZone(currZone);
     tb.exec();
 }

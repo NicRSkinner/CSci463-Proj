@@ -33,11 +33,11 @@ void testBench::programLoop() {
     // Initial test, closes program after 10 seconds
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(triggerAlarm()));
-    timer->start(10000); //Ready to emit signal
+    timer->start(2000); //Ready to emit signal
+    qDebug() << "Singleshot";
+    //QTimer::singleShot(1000, this, SLOT(triggerAlarm()));
 
-    //This is to trigger alarm after x seconds
-    //connect(timer, SIGNAL(timeout()), this, SLOT(triggerAlarm()));
-    //timer->start(1000);
+
 
     //This is to trigger alarm after x seconds
     //connect(timer, SIGNAL(timeout()), this, SLOT(triggerAlarm()));
@@ -49,18 +49,23 @@ void testBench::programLoop() {
 
 
 void testBench::triggerAlarm() {
-    //This is where the function for triggering alarm will be. Needs to be setup
-    qDebug() << "Here next closing";
-    if(currZone == nullptr) {
-        qDebug() << "No init";
-        return;
+
+    if(reset == 0) {
+        qDebug() << "Here next closing";
+        if(currZone == nullptr) {
+            qDebug() << "No init";
+            return;
+        }
+        int number = currZone->rooms.count();
+        qDebug() << "Number of rooms: " << number;
+        int randomRoom = rand() % number;
+
+        //currZone->rooms.at(randomRoom)->unlockDoors();
+        currZone->rooms.at(randomRoom)->setFireAlarmState(true);
+    } else {
+        qDebug() << "Reset button pressed.";
     }
-    int number = currZone->rooms.count();
-    qDebug() << number;
-    int randomRoom = rand() % number;
-    currZone->rooms.at(randomRoom)->unlockDoors();
-    currZone->rooms.at(randomRoom)->setSmokeAlarmState(true);
-    emit ready();
+
 }
 
 void testBench::lockDoor() {
@@ -70,4 +75,8 @@ void testBench::lockDoor() {
 void testBench::addZone(Zone *currentZone)
 {
     currZone = currentZone;
+}
+
+void testBench::resetButton(int val) {
+    reset = val;
 }
