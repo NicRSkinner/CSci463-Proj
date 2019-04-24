@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->buildingViewMap, SIGNAL(activateAlarm()), this, SLOT(AlarmActivated()));
 
+    alarmActivated = false;
     currentTimeout = 30;
     operatorTimeout = new QTimer();
     operatorTimeout->setInterval(1000);
@@ -178,12 +179,13 @@ void MainWindow::UpdateTimeout()
     if (currentTimeout != 0)
     {
         currentTimeout--;
-        ui->labelOperatorTimeout->setText(static_cast<QString>(currentTimeout));
+        QString s = QString::number(currentTimeout);
+        ui->labelOperatorTimeout->setText(s);
     }
     else
     {
         // Call emergency services
-        ui->labelEmergencyServices->setText(" ");
+        ui->labelEmergencyServices->setText("Emergency Services Contacted");
     }
 }
 
@@ -211,4 +213,12 @@ void MainWindow::on_pushButtonTestStart_clicked()
     tb.resetButton(0);
     tb.addZone(currZone);
     tb.exec();
+}
+
+void MainWindow::on_pushButtonActivateAlarm_clicked()
+{
+    if (ui->buildingViewMap->getSelectedRoom() != nullptr)
+    {
+        ui->buildingViewMap->getSelectedRoom()->setFireAlarmState(true);
+    }
 }

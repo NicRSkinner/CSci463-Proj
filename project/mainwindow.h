@@ -54,6 +54,7 @@ private slots:
     void AlarmActivated();
     void UpdateTimeout();
     void on_pushButtonTestStart_clicked();
+    void on_pushButtonActivateAlarm_clicked();
 };
 
 #endif // MAINWINDOW_H

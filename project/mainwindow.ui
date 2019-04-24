@@ -182,24 +182,6 @@
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <item>
-                <widget class="QLabel" name="label_8">
-                 <property name="text">
-                  <string>Security Alarm:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="labelSecurityAlarm_2">
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_8">
                <item>
                 <widget class="QLabel" name="label_9">
@@ -524,6 +506,19 @@ Down</string>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <widget class="QPushButton" name="pushButtonActivateAlarm">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>191</width>
+               <height>161</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Activate Alarm</string>
+             </property>
+            </widget>
            </widget>
           </item>
          </layout>
