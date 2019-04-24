@@ -20,4 +20,22 @@ void LoginWindow::on_pushButton_clicked()
         mainWindow.show();
         this->close();
     }
+
+    if(ui->loginUsername->text() == "David" && ui->loginPassword->text() == "Johnson")
+    {
+        mainWindow.show();
+        this->close();
+    }
+
+    if(ui->loginUsername->text() == "Seth" && ui->loginPassword->text() == "Stoltenow")
+    {
+        mainWindow.show();
+        this->close();
+    }
+
+    if(ui->loginUsername->text() == "Sai" && ui->loginPassword->text() == "Peri")
+    {
+        mainWindow.show();
+        this->close();
+    }
 }
