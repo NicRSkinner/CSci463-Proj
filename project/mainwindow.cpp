@@ -151,8 +151,16 @@ void MainWindow::AlarmActivated()
     t->start();
 }
 
+/*
+ * TODO: Finish timeout function
+ *
+*/
 void MainWindow::UpdateTimeout()
 {
+    QTime time(0, 0, 30);
+    time.addSecs(-1);
+    ui->labelOperatorTimeoutSTATIC->setText(time.toString("ss"));
+
 
 }
 

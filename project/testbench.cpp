@@ -63,11 +63,6 @@ void testBench::triggerAlarm() {
         qDebug() << "Number of rooms: " << number;
 
         for(int i = 0; i < number; i++) {
-            if(number < 3) {
-               currZone->rooms.at(number - 1)->setSmokeAlarmState(true);
-               currZone->rooms.at(number - 2)->setSecurityAlarmState(true);
-               option = 0;
-            }
             if(number >= 3) {
                 currZone->rooms.at(number - 1)->setSmokeAlarmState(true);
                 currZone->rooms.at(number - 2)->setSecurityAlarmState(true);
@@ -77,13 +72,8 @@ void testBench::triggerAlarm() {
             if(option == 1) {
                 randomRoom = rand() % (number - 3);
             }
-            if(i % 2 == 1) {
-               currZone->rooms.at(randomRoom)->setSecurityAlarmState(true);
-            } else if(i % 2 == 0) {
-               currZone->rooms.at(randomRoom)->setFireAlarmState(true);
-            } else if(i == number - 1) {
-                currZone->rooms.at(randomRoom)->setSmokeAlarmState(true);
-            }
+            currZone->rooms.at(randomRoom)->setFireAlarmState(true);
+
         }
         //currZone->rooms.at(randomRoom)->setFireAlarmState(true);
     } else {
