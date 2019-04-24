@@ -15,6 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect(ui->graphicsViewMap, SIGNAL(selectionChanged()), this, SLOT(roomSelectionUpdated()));
 
     connect(ui->buildingViewMap, SIGNAL(activateAlarm()), this, SLOT(AlarmActivated()));
+
+    currentTimeout = 30;
+    operatorTimeout = new QTimer();
+    operatorTimeout->setInterval(1000);
+    connect(operatorTimeout, &QTimer::timeout, this, &MainWindow::UpdateTimeout);
 }
 
 void MainWindow::updateTime()
@@ -131,12 +136,17 @@ void MainWindow::on_pushButtonClearAlarms_clicked()
 {
     ui->buildingViewMap->clearAlarms();
     tb.resetButton(1);
+    operatorTimeout->stop();
+    currentTimeout = 30;
+    ui->labelOperatorTimeout->setText("30");
 }
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
 {
     // Send to incident log
     // contact method
+    currentTimeout = 0;
+    ui->labelOperatorTimeout->setText("0");
 }
 
 void MainWindow::on_pushButtonAdminOptions_clicked()
@@ -146,23 +156,32 @@ void MainWindow::on_pushButtonAdminOptions_clicked()
 
 void MainWindow::AlarmActivated()
 {
-    QTimer *t = new QTimer(this);
-    t->setInterval(1000);
-    connect(t, &QTimer::timeout, this, &MainWindow::UpdateTimeout);
-    t->start();
-}
+    if (alarmActivated == true)
+    {
+        ui->labelOperatorTimeout->setText("0");
+        currentTimeout = 0;
 
+    }
+    else
+    {
+        operatorTimeout->start();
+    }
+}
 /*
  * TODO: Finish timeout function
  *
 */
 void MainWindow::UpdateTimeout()
 {
-    QTime time(0, 0, 30);
-    time.addSecs(-1);
-    ui->labelOperatorTimeoutSTATIC->setText(time.toString("ss"));
-
-
+    if (currentTimeout != 0)
+    {
+        currentTimeout--;
+        ui->labelOperatorTimeout->setText(static_cast<QString>(currentTimeout));
+    }
+    else
+    {
+        // Call emergency services
+    }
 }
 
 void MainWindow::on_pushButtonTestStart_clicked()

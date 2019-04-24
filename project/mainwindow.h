@@ -46,6 +46,9 @@ private:
     Ui::MainWindow *ui;
     testBench tb;
     AdminOptions adminoptions;
+    bool alarmActivated;
+    QTimer *operatorTimeout;
+    int currentTimeout;
 
 private slots:
     void AlarmActivated();
