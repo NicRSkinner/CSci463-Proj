@@ -40,8 +40,17 @@ void MainWindow::RoomSelectionUpdated()
    //ui->labelTimeSTATIC->setText("TEST");
 
    if (selectedRoom == nullptr)
-       return;
+   {
 
+       ui->labelSprinklerSystem->setText("");
+       ui->labelSecurityAlarm->setText("");
+       ui->labelGunTurrets->setText("");
+       ui->labelElectricity->setText("");
+       ui->labelSecurityAlarm->setText("");
+       ui->labelFireAlarm->setText("");
+       ui->labelOccupation->setText("");
+       return;
+    }
    if (selectedRoom->getFireAlarmState())
    {
        ui->labelSprinklerSystem->setText("Activated");
