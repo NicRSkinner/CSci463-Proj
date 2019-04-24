@@ -139,6 +139,7 @@ void MainWindow::on_pushButtonClearAlarms_clicked()
     operatorTimeout->stop();
     currentTimeout = 30;
     ui->labelOperatorTimeout->setText("30");
+    ui->labelEmergencyServices->setText(" ");
 }
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
@@ -147,6 +148,7 @@ void MainWindow::on_pushButtonCEmergencyS_clicked()
     // contact method
     currentTimeout = 0;
     ui->labelOperatorTimeout->setText("0");
+    ui->labelEmergencyServices->setText("Emergency Services Contacted");
 }
 
 void MainWindow::on_pushButtonAdminOptions_clicked()
@@ -158,9 +160,9 @@ void MainWindow::AlarmActivated()
 {
     if (alarmActivated == true)
     {
-        ui->labelOperatorTimeout->setText("0");
         currentTimeout = 0;
-
+        ui->labelOperatorTimeout->setText("0");
+        ui->labelEmergencyServices->setText("Emergency Services Contacted");
     }
     else
     {
@@ -181,6 +183,7 @@ void MainWindow::UpdateTimeout()
     else
     {
         // Call emergency services
+        ui->labelEmergencyServices->setText(" ");
     }
 }
 
@@ -204,7 +207,6 @@ void MainWindow::on_pushButtonTestStart_clicked()
         //currZone = ui->buildingViewMap->zones.at(random);
         currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
-
 
     tb.resetButton(0);
     tb.addZone(currZone);
