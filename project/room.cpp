@@ -16,6 +16,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
     doorIndex = 0;
     if(inName.compare("Room 102") == 0)
     {
+        setRoomNumber(102);
         doors.append(new Door(true, (QRectF(-800/2, -800/2, 250/2, 100/2)), 0, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -29,7 +30,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
     }
     if(inName.compare("Room 103") == 0)
     {
-
+        setRoomNumber(103);
         doors.append(new Door(true, (QRectF(1000/2, -1500/2, 250/2, 100/2)), -90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         //testDoor3 = new Door(true, (QRectF(1000/2, -1500/2, 500/2, 200/2)), -90, rooms.at(1));
@@ -39,12 +40,14 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
     }
     if(inName.compare("Room 105") == 0)
     {
+        setRoomNumber(105);
         doors.append(new Door(true, (QRectF(-1900/2, 800/2, 250/2, 100/2)), 90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         doorIndex++;
     }
     if(inName.compare("Room 107") == 0)
     {
+        setRoomNumber(107);
         doors.append(new Door(true, (QRectF(-600/2, 800/2, 250/2, 100/2)), 90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -52,6 +55,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
 
     if(inName.compare("Room 106") == 0)
     {
+        setRoomNumber(106);
         doors.append(new Door(true, (QRectF(100/2, 800/2, 250/2, 100/2)), 90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -59,6 +63,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
 
     if(inName.compare("Elevator 1") == 0)
     {
+        setRoomNumber(1);
         doors.append(new Door(true, (QRectF(1900/2, 300/2, 250/2, 100/2)), -90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor1()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -67,6 +72,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
    //For floor 2
     if(inName.compare("Room 202") == 0)
     {
+        setRoomNumber(202);
         doors.append(new Door(true, (QRectF(-800/2, -800/2, 250/2, 100/2)), 0, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -80,7 +86,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
     }
     if(inName.compare("Room 203") == 0)
     {
-
+        setRoomNumber(203);
         doors.append(new Door(true, (QRectF(1000/2, -1500/2, 250/2, 100/2)), -90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
 
@@ -92,12 +98,14 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
     }
     if(inName.compare("Room 205") == 0)
     {
+        setRoomNumber(205);
         doors.append(new Door(true, (QRectF(-1900/2, 800/2, 250/2, 100/2)), 90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
         doorIndex++;
     }
     if(inName.compare("Room 207") == 0)
     {
+        setRoomNumber(207);
         doors.append(new Door(true, (QRectF(-600/2, 800/2, 250/2, 100/2)), 90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -105,6 +113,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
 
     if(inName.compare("Room 206") == 0)
     {
+        setRoomNumber(206);
         doors.append(new Door(true, (QRectF(100/2, 800/2, 250/2, 100/2)), 90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -112,6 +121,7 @@ Room::Room(QRectF roomBounds, QString inName, QObject *inParent) : QGraphicsObje
 
     if(inName.compare("Elevator 2") == 0)
     {
+        setRoomNumber(2);
         doors.append(new Door(true, (QRectF(1900/2, 300/2, 250/2, 100/2)), -90, this));
         static_cast<BuildingView *>(inParent->parent())->getFloor2()->addToGroup(doors.at(doorIndex));
         doorIndex++;
@@ -176,6 +186,16 @@ void Room::setSmokeAlarmState(bool inState)
 bool Room::getSmokeAlarmState()
 {
     return smokeAlarmState;
+}
+
+void Room::setRoomNumber(int num)
+{
+    roomNum = num;
+}
+
+int Room::getRoomNumber()
+{
+    return roomNum;
 }
 
 void Room::clearAlarms()

@@ -121,6 +121,9 @@ void MainWindow::RoomSelectionUpdated()
 
    ui->labelOccupation->setText("No Occupation");
 
+   QString s = QString::number(selectedRoom->getRoomNumber());
+   ui->labelRoomNumber->setText(s);
+
 }
 
 void MainWindow::on_pushButtonLockdown_clicked()

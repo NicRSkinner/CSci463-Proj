@@ -23,6 +23,7 @@ private:
     bool fireAlarmState = false;
     bool smokeAlarmState = false;
     bool securityAlarmState = false;
+    int roomNum;
 
     void checkAlarmState(bool state);
 
@@ -38,6 +39,8 @@ public:
     void clearAlarms();
     void setSigns(bool inVal);
 
+    void setRoomNumber(int num);
+    int getRoomNumber();
 
     explicit Room(QRectF roomBounds, QString inName, QObject *inParent);
     //Room(const Room &obj);

@@ -74,6 +74,13 @@
               </widget>
              </item>
              <item>
+              <widget class="QLabel" name="labelRoomNumber">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
                 <widget class="QLabel" name="label">
