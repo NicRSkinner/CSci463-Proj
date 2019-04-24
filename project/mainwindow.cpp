@@ -49,6 +49,7 @@ void MainWindow::RoomSelectionUpdated()
        ui->labelSecurityAlarm->setText("");
        ui->labelFireAlarm->setText("");
        ui->labelOccupation->setText("");
+       ui->labelSmokeAlarm->setText("");
        return;
     }
    if (selectedRoom->getFireAlarmState())

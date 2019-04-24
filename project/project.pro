@@ -33,7 +33,6 @@ SOURCES += \
     room.cpp \
     door.cpp \
     zone.cpp \
-    building.cpp \
     employee.cpp \
     supervisor.cpp \
     testbench.cpp \
@@ -47,7 +46,6 @@ HEADERS += \
     room.h \
     door.h \
     zone.h \
-    building.h \
     employee.h \
     supervisor.h \
     testbench.h \
