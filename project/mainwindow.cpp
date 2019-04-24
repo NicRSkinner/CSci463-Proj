@@ -164,8 +164,8 @@ void MainWindow::on_pushButtonTestStart_clicked()
     {
         //Generates random zone number and sets that.
         int random = rand() % total;
-        currZone = ui->buildingViewMap->zones.at(random);
-        //currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
+        //currZone = ui->buildingViewMap->zones.at(random);
+        currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
 
 
