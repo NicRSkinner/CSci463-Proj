@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -39,8 +40,17 @@ void MainWindow::RoomSelectionUpdated()
    //ui->labelTimeSTATIC->setText("TEST");
 
    if (selectedRoom == nullptr)
-       return;
+   {
 
+       ui->labelSprinklerSystem->setText("");
+       ui->labelSecurityAlarm->setText("");
+       ui->labelGunTurrets->setText("");
+       ui->labelElectricity->setText("");
+       ui->labelSecurityAlarm->setText("");
+       ui->labelFireAlarm->setText("");
+       ui->labelOccupation->setText("");
+       return;
+    }
    if (selectedRoom->getFireAlarmState())
    {
        ui->labelSprinklerSystem->setText("Activated");
@@ -119,6 +129,7 @@ void MainWindow::on_pushButtonMasterUnlock_clicked()
 void MainWindow::on_pushButtonClearAlarms_clicked()
 {
     ui->buildingViewMap->clearAlarms();
+    tb.resetButton(1);
 }
 
 void MainWindow::on_pushButtonCEmergencyS_clicked()
@@ -148,15 +159,26 @@ void MainWindow::UpdateTimeout()
 void MainWindow::on_pushButtonTestStart_clicked()
 {
     Zone *currZone;
-    if (ui->buildingViewMap->getSelectedRoom() != nullptr)
+
+
+    //fetching the total number of zones within the
+    int total = ui->buildingViewMap->zones.count();
+
+    if (ui->buildingViewMap->getSelectedRoom() == nullptr)
     {
-        currZone = ui->buildingViewMap->zones.at(0);
+        int random = rand() % total;
+        currZone = ui->buildingViewMap->zones.at(random);
     }
     else
     {
+        //Generates random zone number and sets that.
+        int random = rand() % total;
+        //currZone = ui->buildingViewMap->zones.at(random);
         currZone = dynamic_cast<Zone*>(ui->buildingViewMap->getSelectedRoom()->parent());
     }
 
+
+    tb.resetButton(0);
     tb.addZone(currZone);
     tb.exec();
 }

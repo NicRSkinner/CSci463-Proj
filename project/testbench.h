@@ -18,6 +18,7 @@ public:
     ~testBench();
 
     void addZone(Zone *currentZone);
+    void resetButton(int val);
 
 signals:
     void ready();
@@ -31,6 +32,7 @@ private slots:
 private:
     Ui::testBench *ui;
     Zone *currZone;
+    int reset;
 };
 
 #endif // TESTBENCH_H
