@@ -50,6 +50,8 @@ void testBench::programLoop() {
 
 void testBench::triggerAlarm() {
 
+    int randomTrigger = 0;
+
     if(reset == 0) {
         qDebug() << "Here next closing";
         if(currZone == nullptr) {
@@ -58,10 +60,21 @@ void testBench::triggerAlarm() {
         }
         int number = currZone->rooms.count();
         qDebug() << "Number of rooms: " << number;
-        int randomRoom = rand() % number;
 
-        //currZone->rooms.at(randomRoom)->unlockDoors();
-        currZone->rooms.at(randomRoom)->setFireAlarmState(true);
+
+        for(int i = 0; i < number; i++) {
+            int randomRoom = rand() % number;
+            if(i % 2 == 1) {
+               currZone->rooms.at(randomRoom)->setSecurityAlarmState(true);
+            } else if(i % 2 == 0) {
+               currZone->rooms.at(randomRoom)->setFireAlarmState(true);
+            } else if(i == number - 1) {
+                currZone->rooms.at(randomRoom)->setSmokeAlarmState(true);
+            }
+        }
+        currZone->rooms.at(number - 1)->setSmokeAlarmState(true);
+        currZone->rooms.at(number - 2)->setSecurityAlarmState(true);
+        //currZone->rooms.at(randomRoom)->setFireAlarmState(true);
     } else {
         qDebug() << "Reset button pressed.";
     }
